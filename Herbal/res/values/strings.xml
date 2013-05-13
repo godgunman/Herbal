@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Herbal</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="sign_in_with_facebook">Sign In With Facebook</string>
+    <string name="facebook_app_id">481423495239549</string>
+
+</resources>
