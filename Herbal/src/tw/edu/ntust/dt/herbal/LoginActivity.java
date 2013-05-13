@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,11 @@ public class MainActivity extends Activity {
 									// TODO Auto-generated method stub
 									if (user != null) {
 										String userName = user.getName();
-										Toast.makeText(MainActivity.this,
+										Toast.makeText(LoginActivity.this,
 												userName, Toast.LENGTH_LONG)
 												.show();
-										Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-										MainActivity.this.startActivity(intent);
+										Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+										LoginActivity.this.startActivity(intent);
 										
 									}
 								}
