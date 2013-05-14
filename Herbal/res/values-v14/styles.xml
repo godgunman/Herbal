@@ -5,8 +5,20 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
+    <!-- API 14 theme customizations can go here. -->
+
+    <style name="Theme.MyAppTheme" parent="android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/Theme.MyAppTheme.ActionBar</item>
+        <item name="android:actionMenuTextColor">#DCDCDC</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#C0C656</item>
+        <item name="android:titleTextStyle">@style/Theme.MyAppTheme.ActionBar.Title</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar.Title" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#DCDCDC</item>
     </style>
 
 </resources>
