@@ -29,5 +29,4 @@ public class DashboardActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
 }
