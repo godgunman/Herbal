@@ -10,6 +10,7 @@ import java.util.TimerTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -25,6 +26,7 @@ import android.view.SurfaceHolder.Callback;
 import android.view.View.OnClickListener;
 import android.view.SurfaceView;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MeasureActvitiy extends Activity {
 
@@ -96,7 +98,7 @@ public class MeasureActvitiy extends Activity {
 		}
 		holder.unlockCanvasAndPost(canvas);
 	}
-	
+
 	private void clear(SurfaceHolder holder) {
 		Canvas canvas = holder.lockCanvas();
 		canvas.drawColor(Color.WHITE);
@@ -126,10 +128,17 @@ public class MeasureActvitiy extends Activity {
 		switch (item.getItemId()) {
 		case R.id.menu_start: {
 			/* http://teslacoilsw.com/teslaled/ */
-			Intent intent = new Intent("com.teslacoilsw.intent.FLASHLIGHT");
+			String flashLightApk = "com.teslacoilsw.intent.FLASHLIGHT";
+
+			if (isApkInstalled(flashLightApk)) {
+				Toast.makeText(this, "請安裝 teslacoilsw apk", Toast.LENGTH_LONG)
+						.show();
+				return true;
+			}
+			
+			Intent intent = new Intent(flashLightApk);
 			intent.putExtra("toggle", true);
 			startService(intent);
-			
 			if (timer != null) {
 				try {
 					timer.schedule(task, 1000, 100);
@@ -152,5 +161,17 @@ public class MeasureActvitiy extends Activity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+
+	private boolean isApkInstalled(String apkPackage) {
+		PackageManager pm = getPackageManager();
+		boolean isInstalled = false;
+		try {
+			pm.getPackageInfo(apkPackage, PackageManager.GET_ACTIVITIES);
+			isInstalled = true;
+		} catch (PackageManager.NameNotFoundException e) {
+			isInstalled = false;
+		}
+		return isInstalled;
 	}
 }
