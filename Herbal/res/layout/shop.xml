@@ -2,9 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white"
-    android:orientation="vertical"
-     >
+    android:background="@drawable/background_black"
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/shop_button_empty" />
 
         <LinearLayout
@@ -46,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null" />
-            
+
             <Button
                 android:id="@+id/shop_button_4"
                 android:layout_width="0dp"
@@ -56,16 +55,15 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <RelativeLayout 
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
+        android:layout_height="match_parent" >
+
         <RelativeLayout
-			android:id="@+id/tray_parent"
+            android:id="@+id/tray_parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_black" >   
-            
+            android:layout_height="match_parent" >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,10 +93,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-				android:layout_marginBottom="-40dp"
+                android:layout_marginBottom="-40dp"
                 android:src="@drawable/shop_buy" />
         </RelativeLayout>
-        
     </RelativeLayout>
 
 </LinearLayout>
