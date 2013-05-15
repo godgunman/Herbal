@@ -2,14 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white" >
+    android:background="@color/background_white"
+    android:orientation="vertical"
+     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/head_button_background"
+            android:id="@+id/shop_head_button_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -52,6 +54,71 @@
                 android:layout_weight="1"
                 android:background="@null" />
         </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_black" >
+	         
+    		<com.sileria.android.SlidingTray
+    		    android:id="@+id/drawer"
+    		    android:layout_width="match_parent"
+    		    android:layout_height="wrap_content"
+    		    android:handle="@+id/handle"
+    		    android:content="@+id/content">
+    		    
+    		    <ImageView
+    		        android:id="@+id/handle"
+    		        android:layout_width="match_parent"
+    		        android:layout_height="wrap_content"
+    		        android:src="@drawable/handle"/>
+    		    
+    		    <GridView
+    		        android:id="@+id/content"
+    		        android:layout_width="match_parent"
+    		        android:layout_height="match_parent"
+    		        />
+    		    
+    		</com.sileria.android.SlidingTray>        
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp" >
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/herbal_green" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/herbal_green" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/herbal_green" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+				android:layout_marginBottom="-40dp"
+                android:src="@drawable/shop_buy" />
+        </RelativeLayout>
+        
     </RelativeLayout>
 
 </LinearLayout>
