@@ -61,30 +61,10 @@
         android:layout_height="match_parent">
         
         <RelativeLayout
+			android:id="@+id/tray_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_black" >
-	         
-    		<com.sileria.android.SlidingTray
-    		    android:id="@+id/drawer"
-    		    android:layout_width="match_parent"
-    		    android:layout_height="wrap_content"
-    		    android:handle="@+id/handle"
-    		    android:content="@+id/content">
-    		    
-    		    <ImageView
-    		        android:id="@+id/handle"
-    		        android:layout_width="match_parent"
-    		        android:layout_height="wrap_content"
-    		        android:src="@drawable/handle"/>
-    		    
-    		    <GridView
-    		        android:id="@+id/content"
-    		        android:layout_width="match_parent"
-    		        android:layout_height="match_parent"
-    		        />
-    		    
-    		</com.sileria.android.SlidingTray>        
+            android:background="@drawable/background_black" >   
             
             <LinearLayout
                 android:layout_width="match_parent"

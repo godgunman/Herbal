@@ -8,8 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 
 import com.sileria.android.Kit;
+import com.sileria.android.Tools;
+import com.sileria.android.view.SlidingTray;
+import com.sileria.util.Side;
 
 public class ShopActivity extends Activity {
 	
@@ -20,10 +26,13 @@ public class ShopActivity extends Activity {
 	private Button mShop3Button;
 	private Button mShop4Button;
 	
+	private ImageView mTrayContent;
+	private SlidingTray mSlidingTray;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Kit.init(this); 
+		Kit.init(getApplicationContext()); 
 		setContentView(R.layout.shop);
 		
 		mHeadButtonBackground = (ImageView) findViewById(R.id.shop_head_button_background);
@@ -37,6 +46,21 @@ public class ShopActivity extends Activity {
 		mShop2Button.setOnClickListener(mButtonClickListener);
 		mShop3Button.setOnClickListener(mButtonClickListener);
 		mShop4Button.setOnClickListener(mButtonClickListener);
+		
+		createSlidingTray();
+	}
+	
+	private void createSlidingTray(){
+		mTrayContent = new Tools(this).newImage(R.drawable.store_info_01);
+		mTrayContent.setAdjustViewBounds(true);
+		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		ImageView handler = new Tools(this).newImage(R.drawable.handle);
+		handler.setAdjustViewBounds(true);
+		handler.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		mSlidingTray = new SlidingTray(this, handler, mTrayContent, SlidingTray.TOP);
+		RelativeLayout parent = (RelativeLayout) this.findViewById(R.id.tray_parent);
+		mSlidingTray.setHandlePosition(Side.TOP);
+		parent.addView(mSlidingTray, new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	}
 
 	@Override
