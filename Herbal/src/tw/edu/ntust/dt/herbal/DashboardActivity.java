@@ -12,15 +12,15 @@ public class DashboardActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard);
-		
+
 		//fast dev
-		clickCut(null);
+		login(null);
 	}
 
-	public void clickCut(View view) {
+	public void login(View view) {
+		//TODO now skip login
 		Intent intent = new Intent(this, MeasureActvitiy.class);
 		startActivity(intent);
-		
 	}
 	
 	@Override
@@ -29,5 +29,4 @@ public class DashboardActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
 }
