@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white" >
+    android:orientation="vertical"
+    android:background="@drawable/background_black" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/result_head_button_empty" />
 
         <LinearLayout
@@ -45,6 +46,20 @@
                 android:layout_weight="1"
                 android:background="@null" />
         </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/leaf1" />
+
     </RelativeLayout>
 
 </LinearLayout>
