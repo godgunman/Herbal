@@ -5,12 +5,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class SymptomActivity extends Activity {
+
+	public static final String EXTRA_PRAM_PERSCRIPTION_NUM = "EXTRA_PRAM_PERSCRIPTION_NUM";
+
+	private ImageView perscription;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.symptom);
+		perscription = (ImageView) findViewById(R.id.perscription);
+
+		int num = getIntent().getIntExtra(EXTRA_PRAM_PERSCRIPTION_NUM, -1);
+		if (num != -1) {
+			perscription
+					.setImageResource(Constants.perscriptionToDrawableId[num]);
+		}
 	}
 
 	@Override

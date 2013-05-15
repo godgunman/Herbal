@@ -17,24 +17,33 @@ public class Constants {
 	public static final String[] herbals = new String[] { "Ashitaba",
 			"Chicory", "Mint", "Ebony", "Matsuba", "BambooLeaves",
 			"MulberryLeaves", "RedBoneBasil", "LotusLeaf", "Plantain",
-			"Perilla", "Dandelion", "Honeysuckle", "Licorice",
-			"Chrysanthemum", };
+			"Perilla", "Dandelion", "Honeysuckle", "Licorice", "Chrysanthemum", };
 
 	public static Map<Integer, List<String>> perscriptionToHerbal;
+	public static final int[] perscriptionToDrawableId = new int[] {
+			R.drawable.perscription_01, R.drawable.perscription_02,
+			R.drawable.perscription_03, R.drawable.perscription_04,
+			R.drawable.perscription_05, R.drawable.perscription_06,
+			R.drawable.perscription_07, R.drawable.perscription_08,
+			R.drawable.perscription_09, R.drawable.perscription_10,
+			R.drawable.perscription_11, R.drawable.perscription_12 };
+
 	public static Map<String, Integer> herbalDrawable;
 
 	static {
 
 		perscriptionToHerbal = new HashMap<Integer, List<String>>();
-		
+
 		perscriptionToHerbal.put(0, new ArrayList<String>());
-		perscriptionToHerbal.get(0).addAll(Arrays.asList("Ashitaba", "Chicory", "Mint"));
-		
+		perscriptionToHerbal.get(0).addAll(
+				Arrays.asList("Ashitaba", "Chicory", "Mint"));
+
 		perscriptionToHerbal.put(1, new ArrayList<String>());
 		perscriptionToHerbal.get(1).addAll(Arrays.asList("Ebony", "Mint"));
 
 		perscriptionToHerbal.put(2, new ArrayList<String>());
-		perscriptionToHerbal.get(2).addAll(Arrays.asList("BambooLeaves", "Matsuba"));
+		perscriptionToHerbal.get(2).addAll(
+				Arrays.asList("BambooLeaves", "Matsuba"));
 
 		perscriptionToHerbal.put(3, new ArrayList<String>());
 		perscriptionToHerbal.get(3).addAll(Arrays.asList("MulberryLeaves"));
@@ -59,11 +68,11 @@ public class Constants {
 
 		perscriptionToHerbal.put(10, new ArrayList<String>());
 		perscriptionToHerbal.get(10).addAll(Arrays.asList("Chrysanthemum"));
-		
+
 		perscriptionToHerbal.put(11, new ArrayList<String>());
 		perscriptionToHerbal.get(11).addAll(Arrays.asList("Licorice"));
-		
-		//TODO wait drawable available
+
+		// TODO wait drawable available
 		herbalDrawable = new HashMap<String, Integer>();
 		herbalDrawable.put(herbals[0], 0);
 		herbalDrawable.put(herbals[1], 0);
