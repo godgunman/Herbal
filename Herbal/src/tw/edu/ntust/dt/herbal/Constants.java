@@ -17,7 +17,7 @@ public class Constants {
 	public static final String[] herbals = new String[] { "Ashitaba",
 			"Chicory", "Mint", "Ebony", "Matsuba", "BambooLeaves",
 			"MulberryLeaves", "RedBoneBasil", "LotusLeaf", "Plantain",
-			"BasilLeaves", "Dandelion", "Honeysuckle", "RawLicorice",
+			"Perilla", "Dandelion", "Honeysuckle", "Licorice",
 			"Chrysanthemum", };
 
 	public static Map<Integer, List<String>> perscriptionToHerbal;
@@ -49,7 +49,7 @@ public class Constants {
 		perscriptionToHerbal.get(6).addAll(Arrays.asList("Plantain"));
 
 		perscriptionToHerbal.put(7, new ArrayList<String>());
-		perscriptionToHerbal.get(7).addAll(Arrays.asList("BasilLeaves"));
+		perscriptionToHerbal.get(7).addAll(Arrays.asList("Perilla"));
 
 		perscriptionToHerbal.put(8, new ArrayList<String>());
 		perscriptionToHerbal.get(8).addAll(Arrays.asList("Dandelion"));
@@ -61,7 +61,7 @@ public class Constants {
 		perscriptionToHerbal.get(10).addAll(Arrays.asList("Chrysanthemum"));
 		
 		perscriptionToHerbal.put(11, new ArrayList<String>());
-		perscriptionToHerbal.get(11).addAll(Arrays.asList("RawLicorice"));
+		perscriptionToHerbal.get(11).addAll(Arrays.asList("Licorice"));
 		
 		//TODO wait drawable available
 		herbalDrawable = new HashMap<String, Integer>();
