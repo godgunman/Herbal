@@ -16,7 +16,7 @@ public class Constants {
 
 	public static final String[] herbals = new String[] { "Ashitaba",
 			"Chicory", "Mint", "Ebony", "Matsuba", "BambooLeaves",
-			"MulberryLeaves", "RedBoneBasil", "LotusLeaf", "Plantain",
+			"MulberryLeaves", "Basil", "LotusLeaf", "Plantain",
 			"Perilla", "Dandelion", "Honeysuckle", "Licorice", "Chrysanthemum", };
 
 	public static Map<Integer, List<String>> perscriptionToHerbal;
@@ -28,7 +28,8 @@ public class Constants {
 			R.drawable.perscription_09, R.drawable.perscription_10,
 			R.drawable.perscription_11, R.drawable.perscription_12 };
 
-	public static Map<String, Integer> herbalDrawable;
+	public static Map<String, Integer> herbalToPressedDrawableId;
+	public static Map<String, Integer> herbalToNormalDrawableId;
 
 	static {
 
@@ -49,7 +50,7 @@ public class Constants {
 		perscriptionToHerbal.get(3).addAll(Arrays.asList("MulberryLeaves"));
 
 		perscriptionToHerbal.put(4, new ArrayList<String>());
-		perscriptionToHerbal.get(4).addAll(Arrays.asList("RedBoneBasil"));
+		perscriptionToHerbal.get(4).addAll(Arrays.asList("Basil"));
 
 		perscriptionToHerbal.put(5, new ArrayList<String>());
 		perscriptionToHerbal.get(5).addAll(Arrays.asList("LotusLeaf"));
@@ -73,21 +74,39 @@ public class Constants {
 		perscriptionToHerbal.get(11).addAll(Arrays.asList("Licorice"));
 
 		// TODO wait drawable available
-		herbalDrawable = new HashMap<String, Integer>();
-		herbalDrawable.put(herbals[0], 0);
-		herbalDrawable.put(herbals[1], 0);
-		herbalDrawable.put(herbals[2], 0);
-		herbalDrawable.put(herbals[3], 0);
-		herbalDrawable.put(herbals[4], 0);
-		herbalDrawable.put(herbals[5], 0);
-		herbalDrawable.put(herbals[6], 0);
-		herbalDrawable.put(herbals[7], 0);
-		herbalDrawable.put(herbals[8], 0);
-		herbalDrawable.put(herbals[9], 0);
-		herbalDrawable.put(herbals[10], 0);
-		herbalDrawable.put(herbals[11], 0);
-		herbalDrawable.put(herbals[12], 0);
-		herbalDrawable.put(herbals[13], 0);
-		herbalDrawable.put(herbals[14], 0);
+		herbalToPressedDrawableId = new HashMap<String, Integer>();
+		herbalToPressedDrawableId.put("Ashitaba", R.drawable.herbal_ashitaba1);
+		herbalToPressedDrawableId.put("Chicory", R.drawable.herbal_chicory1);
+		herbalToPressedDrawableId.put("Mint", R.drawable.herbal_mint1);
+		herbalToPressedDrawableId.put("Ebony", R.drawable.herbal_ebony1);
+		herbalToPressedDrawableId.put("BambooLeaves", R.drawable.herbal_bamboo_leaves1);
+		herbalToPressedDrawableId.put("Matsuba", R.drawable.herbal_matsuba1);
+		herbalToPressedDrawableId.put("MulberryLeaves", R.drawable.herbal_mulberry_leaves1);
+		herbalToPressedDrawableId.put("Basil", R.drawable.herbal_basil1);
+		herbalToPressedDrawableId.put("LotusLeaf", R.drawable.herbal_lotus_leaf1);
+		herbalToPressedDrawableId.put("Plantain", R.drawable.herbal_plantain1);
+		herbalToPressedDrawableId.put("Perilla", R.drawable.herbal_perilla1);
+		herbalToPressedDrawableId.put("Dandelion", R.drawable.herbal_dandelion1);
+		herbalToPressedDrawableId.put("Honeysuckle", R.drawable.herbal_honeysuckle1);
+		herbalToPressedDrawableId.put("Chrysanthemum", R.drawable.herbal_chrysanthemum1);
+		herbalToPressedDrawableId.put("Licorice", R.drawable.herbal_licorice1);
+		
+		herbalToNormalDrawableId = new HashMap<String, Integer>();
+		herbalToNormalDrawableId.put("Ashitaba", R.drawable.herbal_ashitaba2);
+		herbalToNormalDrawableId.put("Chicory", R.drawable.herbal_chicory2);
+		herbalToNormalDrawableId.put("Mint", R.drawable.herbal_mint2);
+		herbalToNormalDrawableId.put("Ebony", R.drawable.herbal_ebony2);
+		herbalToNormalDrawableId.put("BambooLeaves", R.drawable.herbal_bamboo_leaves2);
+		herbalToNormalDrawableId.put("Matsuba", R.drawable.herbal_matsuba2);
+		herbalToNormalDrawableId.put("MulberryLeaves", R.drawable.herbal_mulberry_leaves2);
+		herbalToNormalDrawableId.put("Basil", R.drawable.herbal_basil2);
+		herbalToNormalDrawableId.put("LotusLeaf", R.drawable.herbal_lotus_leaf2);
+		herbalToNormalDrawableId.put("Plantain", R.drawable.herbal_plantain2);
+		herbalToNormalDrawableId.put("Perilla", R.drawable.herbal_perilla2);
+		herbalToNormalDrawableId.put("Dandelion", R.drawable.herbal_dandelion2);
+		herbalToNormalDrawableId.put("Honeysuckle", R.drawable.herbal_honeysuckle2);
+		herbalToNormalDrawableId.put("Chrysanthemum", R.drawable.herbal_chrysanthemum2);
+		herbalToNormalDrawableId.put("Licorice", R.drawable.herbal_licorice2);
+		
 	}
 }
