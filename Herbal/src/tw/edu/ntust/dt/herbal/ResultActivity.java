@@ -72,7 +72,7 @@ public class ResultActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_next:
-			Intent intent = new Intent(this, SymptomActivity.class);
+			Intent intent = new Intent(this, HistoryActivity.class);
 			startActivity(intent);
 			return true;
 		case R.id.menu_logout:

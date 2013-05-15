@@ -1,6 +1,7 @@
 package tw.edu.ntust.dt.herbal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,8 @@ public class HistoryActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_next:
+			Intent intent = new Intent(this, SymptomActivity.class);
+			startActivity(intent);
 			return true;
 		case R.id.menu_logout:
 			return true;
