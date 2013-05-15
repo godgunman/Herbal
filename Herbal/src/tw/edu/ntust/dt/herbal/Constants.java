@@ -21,12 +21,12 @@ public class Constants {
 
 	public static Map<Integer, List<String>> perscriptionToHerbal;
 	public static final int[] perscriptionToDrawableId = new int[] {
-			R.drawable.perscription_01, R.drawable.perscription_02,
-			R.drawable.perscription_03, R.drawable.perscription_04,
-			R.drawable.perscription_05, R.drawable.perscription_06,
-			R.drawable.perscription_07, R.drawable.perscription_08,
-			R.drawable.perscription_09, R.drawable.perscription_10,
-			R.drawable.perscription_11, R.drawable.perscription_12 };
+			R.drawable.perscription01, R.drawable.perscription02,
+			R.drawable.perscription03, R.drawable.perscription04,
+			R.drawable.perscription05, R.drawable.perscription06,
+			R.drawable.perscription07, R.drawable.perscription08,
+			R.drawable.perscription09, R.drawable.perscription10,
+			R.drawable.perscription11, R.drawable.perscription12 };
 
 	public static Map<String, Integer> herbalToPressedDrawableId;
 	public static Map<String, Integer> herbalToNormalDrawableId;
