@@ -76,19 +76,19 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/herbal_green" />
+                    android:src="@drawable/herbal_ashitaba2" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/herbal_green" />
+                    android:src="@drawable/herbal_bamboo_leaves2" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/herbal_green" />
+                    android:src="@drawable/herbal_basil1" />
             </LinearLayout>
 
             <ImageView
