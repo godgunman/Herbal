@@ -10,7 +10,7 @@
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/head_button_background"
+            android:id="@+id/result_button_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -26,21 +26,21 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/head_button_normal"
+                android:id="@+id/result_button_normal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null" />
 
             <Button
-                android:id="@+id/head_button_meal"
+                android:id="@+id/result_button_meal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null" />
 
             <Button
-                android:id="@+id/head_button_sport"
+                android:id="@+id/result_button_sport"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
