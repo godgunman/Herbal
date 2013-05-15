@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         android:src="@drawable/footer" />
 
     <ImageView
@@ -28,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/footer"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="50dp"
         android:adjustViewBounds="true"
         android:src="@drawable/login_button" />
 
