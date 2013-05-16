@@ -62,7 +62,11 @@
             android:name="tw.edu.ntust.dt.herbal.HerbalDetailActivity"
             android:theme="@android:style/Theme.Dialog">
         </activity>
-
+		<activity
+            android:name="tw.edu.ntust.dt.herbal.ConfirmActivity"
+            android:theme="@style/Theme.MyAppTheme">
+        </activity>
+        
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

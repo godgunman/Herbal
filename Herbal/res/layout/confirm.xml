@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,8 +6,9 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/confirm_top"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -44,8 +45,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/confirm_middle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirm_top" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -66,43 +69,36 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/input_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/confirm_middle"
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_input_people" />
-
-    <ImageView
-        android:id="@+id/imageView3"
+	<ImageView
+        android:id="@+id/input_phons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/input_people"
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_input_phone" />
-
-    <ImageView
-        android:id="@+id/imageView3"
+    
+	<ImageView
+        android:id="@+id/input_serial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_input_serial" />
-
+    
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/button_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_button_confirm" />
 
-</LinearLayout>
+    
+
+    
+</RelativeLayout>

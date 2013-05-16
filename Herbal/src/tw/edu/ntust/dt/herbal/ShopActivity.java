@@ -1,11 +1,12 @@
 package tw.edu.ntust.dt.herbal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import android.widget.TextView;
 
 import com.sileria.android.Kit;
 import com.sileria.android.Tools;
@@ -28,6 +28,8 @@ public class ShopActivity extends Activity {
 
 	public static final String EXTRA_PRAM_PERSCRIPTION_NUM = "EXTRA_PRAM_PERSCRIPTION_NUM";
 
+	private Context mContext;
+	
 	private LinearLayout herbalList;
 
 	private ImageView mHeadButtonBackground;
@@ -38,6 +40,8 @@ public class ShopActivity extends Activity {
 
 	private ImageView mTrayContent;
 	private SlidingTray mSlidingTray;
+	
+	private List<String> carts;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,12 @@ public class ShopActivity extends Activity {
 		mShop3Button.setOnClickListener(mButtonClickListener);
 		mShop4Button.setOnClickListener(mButtonClickListener);
 
+		ImageView mBuyButton = (ImageView) findViewById(R.id.buy_button);
+		mBuyButton.setOnClickListener(buyButtonListner);
+		
+		carts = new  ArrayList<String>();
+		mContext = this;
+		
 		createSlidingTray();
 		createHerbalListFromPerscription();
 	}
@@ -70,6 +80,7 @@ public class ShopActivity extends Activity {
 			ImageView imageView = new ImageView(this);
 			int drawableId = Constants.herbalToNormalDrawableId.get(herbal);
 			imageView.setImageResource(drawableId);
+			imageView.setAdjustViewBounds(true);
 			imageView.setTag(Pair.create(herbal, 0));
 			imageView.setOnLongClickListener(triggerHerbalDetail);
 			imageView.setOnClickListener(toggleHerbalSelected);
@@ -82,9 +93,9 @@ public class ShopActivity extends Activity {
 	}
 
 	private void createSlidingTray() {
-		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info1);
+		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info2);
 		mTrayContent.setAdjustViewBounds(true);
-		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 		ImageView handler = new Tools(this).newImage(R.drawable.handle);
 		handler.setAdjustViewBounds(true);
 		handler.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -94,7 +105,7 @@ public class ShopActivity extends Activity {
 				.findViewById(R.id.tray_parent);
 		mSlidingTray.setHandlePosition(Side.TOP);
 		parent.addView(mSlidingTray, new RelativeLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 	}
 
 	@Override
@@ -120,20 +131,32 @@ public class ShopActivity extends Activity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.shop_button_1:
-				mHeadButtonBackground
-						.setImageResource(R.drawable.shop_button_1);
+				mHeadButtonBackground.setImageResource(R.drawable.shop_button_1);
+				mTrayContent.setImageResource(R.drawable.shop_store_info1);
+				mTrayContent.setAdjustViewBounds(true);
+//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_2:
-				mHeadButtonBackground
-						.setImageResource(R.drawable.shop_button_2);
+				mHeadButtonBackground.setImageResource(R.drawable.shop_button_2);
+				mTrayContent.setImageResource(R.drawable.shop_store_info3);
+				mTrayContent.setAdjustViewBounds(true);
+//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_3:
-				mHeadButtonBackground
-						.setImageResource(R.drawable.shop_button_3);
+				mHeadButtonBackground.setImageResource(R.drawable.shop_button_3);
+				mTrayContent.setImageResource(R.drawable.shop_store_info2);
+				mTrayContent.setAdjustViewBounds(true);
+//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_4:
-				mHeadButtonBackground
-						.setImageResource(R.drawable.shop_button_4);
+				mHeadButtonBackground.setImageResource(R.drawable.shop_button_4);
+				mTrayContent.setImageResource(R.drawable.shop_store_info4);
+				mTrayContent.setAdjustViewBounds(true);
+//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			}
 
@@ -178,9 +201,11 @@ public class ShopActivity extends Activity {
 				switch (status) {
 				case 0:
 					changeId = Constants.herbalToPressedDrawableId.get(herbal);
+					carts.add(herbal);
 					break;
 				case 1:
 					changeId = Constants.herbalToNormalDrawableId.get(herbal);
+					carts.remove(herbal);
 					break;
 				}
 				if (changeId != -1) {
@@ -188,6 +213,16 @@ public class ShopActivity extends Activity {
 					v.setTag(Pair.create(herbal, 1 - status));
 				}
 			}
+		}
+	};
+	
+	private OnClickListener buyButtonListner = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(ShopActivity.this, ConfirmActivity.class);
+			intent.putExtra("cart", carts.toArray(new String[carts.size()]));
+			mContext.startActivity(intent);
 		}
 	};
 

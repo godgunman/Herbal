@@ -56,51 +56,60 @@
         </LinearLayout>
     </RelativeLayout>
 
+   
+
     <RelativeLayout
+        android:id="@+id/tray_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/shop_top" >
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_top"  >
 
-        <RelativeLayout
-            android:id="@+id/tray_parent"
+        <LinearLayout
+            android:id="@+id/shop_herbal_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <LinearLayout
-                android:id="@+id/shop_herbal_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp" >
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/herbal_ashitaba2" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/herbal_bamboo_leaves2" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/herbal_basil1" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="40dp">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="-40dp"
-                android:src="@drawable/shop_buy" />
-        </RelativeLayout>
-    </RelativeLayout>
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/herbal_ashitaba2" />
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/herbal_bamboo_leaves2" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/herbal_basil1" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+	
+
+    <ImageView
+        	android:id="@+id/buy_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shop_buy" />
+    	
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
