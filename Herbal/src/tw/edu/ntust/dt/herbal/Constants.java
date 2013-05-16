@@ -30,6 +30,8 @@ public class Constants {
 
 	public static Map<String, Integer> herbalToPressedDrawableId;
 	public static Map<String, Integer> herbalToNormalDrawableId;
+	
+	public static Map<Integer, Integer> herbalDrawableIdToDetailId;
 
 	static {
 
@@ -107,6 +109,55 @@ public class Constants {
 		herbalToNormalDrawableId.put("Honeysuckle", R.drawable.herbal_honeysuckle2);
 		herbalToNormalDrawableId.put("Chrysanthemum", R.drawable.herbal_chrysanthemum2);
 		herbalToNormalDrawableId.put("Licorice", R.drawable.herbal_licorice2);
+	
+		
+		herbalDrawableIdToDetailId = new HashMap<Integer, Integer>();
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_ashitaba1, R.drawable.herbal_ashitaba_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_ashitaba2, R.drawable.herbal_ashitaba_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_bamboo_leaves1, R.drawable.herbal_bamboo_leaves_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_bamboo_leaves2, R.drawable.herbal_bamboo_leaves_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_basil1, R.drawable.herbal_basil_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_basil2, R.drawable.herbal_basil_detail);
+
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_chicory1, R.drawable.herbal_chicory_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_chicory2, R.drawable.herbal_chicory_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_chrysanthemum1, R.drawable.herbal_chrysanthemum_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_chrysanthemum2, R.drawable.herbal_chrysanthemum_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_dandelion1, R.drawable.herbal_dandelion_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_dandelion2, R.drawable.herbal_dandelion_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_ebony1, R.drawable.herbal_ebony_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_ebony2, R.drawable.herbal_ebony_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_honeysuckle1, R.drawable.herbal_honeysuckle_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_honeysuckle2, R.drawable.herbal_honeysuckle_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_licorice1, R.drawable.herbal_licorice_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_licorice2, R.drawable.herbal_licorice_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_lotus_leaf1, R.drawable.herbal_lotus_leaf_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_lotus_leaf2, R.drawable.herbal_lotus_leaf_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_matsuba1, R.drawable.herbal_matsuba_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_matsuba2, R.drawable.herbal_matsuba_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_mint1, R.drawable.herbal_mint_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_mint2, R.drawable.herbal_mint_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_mulberry_leaves1, R.drawable.herbal_mulberry_leaves_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_mulberry_leaves2, R.drawable.herbal_mulberry_leaves_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_perilla1, R.drawable.herbal_perilla_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_perilla2, R.drawable.herbal_perilla_detail);
+		
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_plantain1, R.drawable.herbal_plantain_detail);
+		herbalDrawableIdToDetailId.put(R.drawable.herbal_plantain2, R.drawable.herbal_plantain_detail);
+		
 		
 	}
 }
