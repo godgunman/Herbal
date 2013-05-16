@@ -1,5 +1,7 @@
 package tw.edu.ntust.dt.herbal;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +11,22 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 
+	public static final String EXTRA_PRAM_BMP = "EXTRA_PRAM_BMP";
+
 	private ImageView buttonBackground;
+	private ImageView leaf;
+
+	private TextView bmpTextView;
 	private Button normalButton;
 	private Button mealButton;
 	private Button sportButton;
+
+	private int bmpValue;
+	private int status;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +35,40 @@ public class ResultActivity extends Activity {
 		findViews();
 		setListeners();
 
+		bmpValue = getIntent().getIntExtra(EXTRA_PRAM_BMP, -1);
+		if (bmpValue == -1) {
+			bmpValue = new Random().nextInt(60) + 60;
+		}
+
+		status = 0;
+		setContent();
+	}
+
+	private void updateLeafColor() {
+		int newBmpValue = bmpValue - status * 15;
+		if (newBmpValue < 80) {
+			leaf.setImageResource(R.drawable.result_leaf3);
+		} else if (newBmpValue < 100) {
+			leaf.setImageResource(R.drawable.result_leaf2);
+		} else if (newBmpValue < 150) {
+			leaf.setImageResource(R.drawable.result_leaf1);
+		}
 	}
 
 	private void findViews() {
 		buttonBackground = (ImageView) findViewById(R.id.result_button_background);
+		leaf = (ImageView) findViewById(R.id.leaf);
+
+		bmpTextView = (TextView) findViewById(R.id.bmp);
+
 		normalButton = (Button) findViewById(R.id.result_button_normal);
 		mealButton = (Button) findViewById(R.id.result_button_meal);
 		sportButton = (Button) findViewById(R.id.result_button_sport);
+	}
 
+	private void setContent() {
+		bmpTextView.setText(String.valueOf(bmpValue));
+		updateLeafColor();
 	}
 
 	private void setListeners() {
@@ -40,6 +77,8 @@ public class ResultActivity extends Activity {
 			public void onClick(View v) {
 				buttonBackground
 						.setImageResource(R.drawable.result_head_button_normal);
+				ResultActivity.this.status = 0;
+				updateLeafColor();
 			}
 		});
 
@@ -48,6 +87,8 @@ public class ResultActivity extends Activity {
 			public void onClick(View v) {
 				buttonBackground
 						.setImageResource(R.drawable.result_head_button_meal);
+				ResultActivity.this.status = 1;
+				updateLeafColor();
 			}
 		});
 
@@ -57,6 +98,8 @@ public class ResultActivity extends Activity {
 			public void onClick(View v) {
 				buttonBackground
 						.setImageResource(R.drawable.result_head_button_sport);
+				ResultActivity.this.status = 2;
+				updateLeafColor();
 			}
 		});
 	}
