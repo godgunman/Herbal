@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/result_head_button_empty" />
+            android:src="@drawable/result_head_button_normal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:layout_height="match_parent" >
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/leaf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

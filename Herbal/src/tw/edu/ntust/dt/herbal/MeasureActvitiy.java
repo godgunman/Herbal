@@ -1,7 +1,6 @@
 package tw.edu.ntust.dt.herbal;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -14,18 +13,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.util.Log;
-import android.util.Pair;
+import android.graphics.PixelFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
-import android.view.View;
 import android.view.SurfaceHolder.Callback;
-import android.view.View.OnClickListener;
 import android.view.SurfaceView;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class MeasureActvitiy extends Activity {
@@ -47,7 +40,12 @@ public class MeasureActvitiy extends Activity {
 
 		setContentView(R.layout.measure);
 		surface = (SurfaceView) findViewById(R.id.chart);
+		surface.setZOrderOnTop(true);
 
+		SurfaceHolder sfhTrack = surface.getHolder();
+		sfhTrack.setFormat(PixelFormat.TRANSPARENT);
+		
+		
 		holder = surface.getHolder();
 		holder.addCallback(new Callback() {
 			public void surfaceChanged(SurfaceHolder holder, int format,
@@ -89,6 +87,7 @@ public class MeasureActvitiy extends Activity {
 		Paint p = new Paint();
 		p.setColor(Color.BLACK);
 		p.setStrokeWidth(4);
+		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
 		canvas.drawColor(Color.WHITE);
 
