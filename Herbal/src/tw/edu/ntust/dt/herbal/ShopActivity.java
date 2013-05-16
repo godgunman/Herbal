@@ -82,7 +82,7 @@ public class ShopActivity extends Activity {
 	}
 
 	private void createSlidingTray() {
-		mTrayContent = new Tools(this).newImage(R.drawable.store_info_01);
+		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info1);
 		mTrayContent.setAdjustViewBounds(true);
 		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 		ImageView handler = new Tools(this).newImage(R.drawable.handle);
