@@ -17,8 +17,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.MyAppTheme"
-        android:largeHeap="true" >
+        android:largeHeap="true"
+        android:theme="@style/Theme.MyAppTheme" >
         <activity
             android:name="tw.edu.ntust.dt.herbal.LoginActivity"
             android:label="@string/app_name"
@@ -57,6 +57,10 @@
             android:name="tw.edu.ntust.dt.herbal.ShopActivity"
             android:label="HERBAL SHOP"
             android:theme="@style/Theme.MyAppTheme" >
+        </activity>
+        <activity
+            android:name="tw.edu.ntust.dt.herbal.HerbalDetailActivity"
+            android:theme="@android:style/Theme.Dialog">
         </activity>
 
         <meta-data
