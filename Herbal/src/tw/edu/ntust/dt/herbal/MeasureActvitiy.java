@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MeasureActvitiy extends Activity {
@@ -28,6 +30,7 @@ public class MeasureActvitiy extends Activity {
 
 	private final static String TAG = MeasureActvitiy.class.getSimpleName();
 
+	private TextView bmpTextView;
 	private SurfaceHolder holder;
 	private SurfaceView surface;
 	private List<Integer> points;
@@ -39,13 +42,13 @@ public class MeasureActvitiy extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.measure);
+		bmpTextView = (TextView) findViewById(R.id.bmpTextView);
 		surface = (SurfaceView) findViewById(R.id.chart);
 		surface.setZOrderOnTop(true);
 
 		SurfaceHolder sfhTrack = surface.getHolder();
 		sfhTrack.setFormat(PixelFormat.TRANSPARENT);
-		
-		
+
 		holder = surface.getHolder();
 		holder.addCallback(new Callback() {
 			public void surfaceChanged(SurfaceHolder holder, int format,
@@ -72,13 +75,27 @@ public class MeasureActvitiy extends Activity {
 		while (times-- != 0) {
 			int last = points.get(points.size() - 1);
 			int r = (new Random().nextInt()) % 2 == 0 ? 1 : -1;
+			final int d;
+			final String bmpText = bmpTextView.getText().toString();
+
 			if (last + r * 2 < MEASURE_BOUND_MIN) {
 				last -= r * 2;
+				d = -1;
 			} else if (last + r * 2 > MEASURE_BOUND_MAX) {
 				last -= r * 2;
+				d = -1;
 			} else {
 				last += r * 2;
+				d = 1;
 			}
+			this.runOnUiThread(new Runnable() {
+
+				@Override
+				public void run() {
+					bmpTextView.setText(String.valueOf(Integer.valueOf(bmpText)
+							+ d));
+				}
+			});
 			points.add(last);
 		}
 	}
@@ -87,9 +104,12 @@ public class MeasureActvitiy extends Activity {
 		Paint p = new Paint();
 		p.setColor(Color.BLACK);
 		p.setStrokeWidth(4);
-		holder.setFormat(PixelFormat.TRANSPARENT);
+		// holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
-		canvas.drawColor(Color.WHITE);
+		// canvas.drawColor(Color.WHITE);
+		canvas.restore();
+		// canvas.setBitmap(BitmapFactory.decodeResource(getResources(),
+		// R.drawable.background_black));
 
 		int counter = sequence.size() - 1;
 		for (Integer point : sequence) {
@@ -134,7 +154,7 @@ public class MeasureActvitiy extends Activity {
 						.show();
 				return true;
 			}
-			
+
 			Intent intent = new Intent(flashLightApk);
 			intent.putExtra("toggle", true);
 			startService(intent);
@@ -152,6 +172,8 @@ public class MeasureActvitiy extends Activity {
 		case R.id.menu_next: {
 
 			Intent intent = new Intent(this, ResultActivity.class);
+			intent.putExtra(ResultActivity.EXTRA_PRAM_BMP,
+					Integer.valueOf(bmpTextView.getText().toString()));
 			startActivity(intent);
 			return true;
 		}

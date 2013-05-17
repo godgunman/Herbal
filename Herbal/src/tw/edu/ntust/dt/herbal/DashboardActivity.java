@@ -14,7 +14,7 @@ public class DashboardActivity extends Activity {
 		setContentView(R.layout.dashboard);
 
 		//fast dev
-//		login(null);
+		login(null);
 	}
 
 	public void login(View view) {
