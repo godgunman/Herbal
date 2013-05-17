@@ -142,19 +142,19 @@ public class MeasureActvitiy extends Activity {
 		switch (item.getItemId()) {
 		case R.id.menu_start: {
 			/* http://teslacoilsw.com/teslaled/ */
+			String flashLightApk = "com.teslacoilsw.intent.FLASHLIGHT";
+			if (isApkInstalled(flashLightApk)) {
+				Toast.makeText(this, "請安裝 teslacoilsw apk", Toast.LENGTH_LONG)
+						.show();
+				return true;
+			}
+
+			Intent intent = new Intent(flashLightApk);
+			intent.putExtra("toggle", true);
+			startService(intent);
 
 			String title = item.getTitle().toString();
 			if ("start".equals(title)) {
-				String flashLightApk = "com.teslacoilsw.intent.FLASHLIGHT";
-				if (isApkInstalled(flashLightApk)) {
-					Toast.makeText(this, "請安裝 teslacoilsw apk",
-							Toast.LENGTH_LONG).show();
-					return true;
-				}
-
-				Intent intent = new Intent(flashLightApk);
-				intent.putExtra("toggle", true);
-				startService(intent);
 
 				TimerTask task = new TimerTask() {
 					@Override
@@ -184,7 +184,8 @@ public class MeasureActvitiy extends Activity {
 						Integer.valueOf(bmpTextView.getText().toString()));
 				startActivity(intent);
 			} else {
-				Toast.makeText(this, "請先按 STOP，再進行下一步。", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "請先按 STOP，再進行下一步。", Toast.LENGTH_LONG)
+						.show();
 			}
 			return true;
 		}
