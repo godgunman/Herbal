@@ -1,0 +1,54 @@
+package tw.edu.ntust.dt.herbal;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
+import com.sileria.android.view.SlidingTray;
+
+public class WrappingSlidingTray extends SlidingTray {
+
+	public WrappingSlidingTray(Context context, View handle, View content,
+			int orientation) {
+		super(context, handle, content, orientation);
+		mVertical = true;
+		mTopOffset = 0;
+	}
+	@Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSpecSize =  MeasureSpec.getSize(widthMeasureSpec);
+
+        int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSpecSize =  MeasureSpec.getSize(heightMeasureSpec);
+
+        if (widthSpecMode == MeasureSpec.UNSPECIFIED || heightSpecMode == MeasureSpec.UNSPECIFIED) {
+            throw new RuntimeException("SlidingDrawer cannot have UNSPECIFIED dimensions");
+        }
+
+        final View handle = getHandle();
+        final View content = getContent();
+        measureChild(handle, widthMeasureSpec, heightMeasureSpec);
+
+        if (mVertical) {
+            int height = heightSpecSize - handle.getMeasuredHeight() - mTopOffset;
+            content.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, heightSpecMode));
+            heightSpecSize = handle.getMeasuredHeight() + mTopOffset + content.getMeasuredHeight();
+            widthSpecSize = content.getMeasuredWidth();
+            if (handle.getMeasuredWidth() > widthSpecSize) widthSpecSize = handle.getMeasuredWidth();
+        }
+        else {
+            int width = widthSpecSize - handle.getMeasuredWidth() - mTopOffset;
+            getContent().measure(MeasureSpec.makeMeasureSpec(width, widthSpecMode), heightMeasureSpec);
+            widthSpecSize = handle.getMeasuredWidth() + mTopOffset + content.getMeasuredWidth();
+            heightSpecSize = content.getMeasuredHeight();
+            if (handle.getMeasuredHeight() > heightSpecSize) heightSpecSize = handle.getMeasuredHeight();
+        }
+
+        setMeasuredDimension(widthSpecSize, heightSpecSize);
+    }
+
+    private boolean mVertical;
+    private int mTopOffset;
+}

@@ -33,6 +33,8 @@ public class Constants {
 	
 	public static Map<Integer, Integer> herbalDrawableIdToDetailId;
 
+	public static Map<String, Integer> herbalToConfirmDrawableId;
+	
 	static {
 
 		perscriptionToHerbal = new HashMap<Integer, List<String>>();
@@ -110,6 +112,24 @@ public class Constants {
 		herbalToNormalDrawableId.put("Chrysanthemum", R.drawable.herbal_chrysanthemum2);
 		herbalToNormalDrawableId.put("Licorice", R.drawable.herbal_licorice2);
 	
+		herbalToConfirmDrawableId = new HashMap<String, Integer>();
+		herbalToConfirmDrawableId.put("Ashitaba", R.drawable.confirm_herbal_ashitaba);
+		herbalToConfirmDrawableId.put("Chicory", R.drawable.confirm_herbal_chicory);
+		herbalToConfirmDrawableId.put("Mint", R.drawable.confirm_herbal_mint);
+		herbalToConfirmDrawableId.put("Ebony", R.drawable.confirm_herbal_ebony);
+		herbalToConfirmDrawableId.put("BambooLeaves", R.drawable.confirm_herbal_bamboo);
+		herbalToConfirmDrawableId.put("Matsuba", R.drawable.confirm_herbal_matsuba);
+		herbalToConfirmDrawableId.put("MulberryLeaves", R.drawable.confirm_herbal_mulberry_leaves);
+		herbalToConfirmDrawableId.put("Basil", R.drawable.confirm_herbal_basil);
+		herbalToConfirmDrawableId.put("LotusLeaf", R.drawable.confirm_herbal_lotus_leaf);
+		herbalToConfirmDrawableId.put("Plantain", R.drawable.confirm_herbal_plantain);
+		herbalToConfirmDrawableId.put("Perilla", R.drawable.confirm_herbal_perilla);
+		herbalToConfirmDrawableId.put("Dandelion", R.drawable.confirm_herbal_dandelion);
+		herbalToConfirmDrawableId.put("Honeysuckle", R.drawable.confirm_herbal_honeysuckle);
+		herbalToConfirmDrawableId.put("Chrysanthemum", R.drawable.confirm_herbal_chrysanthemum);
+		herbalToConfirmDrawableId.put("Licorice", R.drawable.confirm_herbal_licorice);
+		
+		
 		
 		herbalDrawableIdToDetailId = new HashMap<Integer, Integer>();
 		
@@ -157,6 +177,7 @@ public class Constants {
 		
 		herbalDrawableIdToDetailId.put(R.drawable.herbal_plantain1, R.drawable.herbal_plantain_detail);
 		herbalDrawableIdToDetailId.put(R.drawable.herbal_plantain2, R.drawable.herbal_plantain_detail);
+		
 		
 		
 	}

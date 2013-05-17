@@ -93,13 +93,13 @@ public class ShopActivity extends Activity {
 	}
 
 	private void createSlidingTray() {
-		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info2);
+		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info1);
 		mTrayContent.setAdjustViewBounds(true);
 		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 		ImageView handler = new Tools(this).newImage(R.drawable.handle);
 		handler.setAdjustViewBounds(true);
 		handler.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		mSlidingTray = new SlidingTray(this, handler, mTrayContent,
+		mSlidingTray = new WrappingSlidingTray(this, handler, mTrayContent,
 				SlidingTray.TOP);
 		RelativeLayout parent = (RelativeLayout) this
 				.findViewById(R.id.tray_parent);
@@ -134,28 +134,28 @@ public class ShopActivity extends Activity {
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_1);
 				mTrayContent.setImageResource(R.drawable.shop_store_info1);
 				mTrayContent.setAdjustViewBounds(true);
-//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_2:
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_2);
 				mTrayContent.setImageResource(R.drawable.shop_store_info3);
 				mTrayContent.setAdjustViewBounds(true);
-//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_3:
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_3);
 				mTrayContent.setImageResource(R.drawable.shop_store_info2);
 				mTrayContent.setAdjustViewBounds(true);
-//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_4:
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_4);
 				mTrayContent.setImageResource(R.drawable.shop_store_info4);
 				mTrayContent.setAdjustViewBounds(true);
-//				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			}

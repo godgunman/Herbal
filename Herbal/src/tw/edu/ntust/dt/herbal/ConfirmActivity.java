@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout.LayoutParams;
 
 public class ConfirmActivity extends Activity {
 
@@ -22,7 +23,13 @@ public class ConfirmActivity extends Activity {
 		parent.removeAllViews();
 		for(String item: cart){
 			ImageView image = new ImageView(this);
+			int resourceId = Constants.herbalToConfirmDrawableId.get(item);
+			image.setImageResource(resourceId);
+			image.setAdjustViewBounds(true);
 			
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0,
+					LayoutParams.WRAP_CONTENT, 1);
+			parent.addView(image, params);
 		}
 	}
 	
