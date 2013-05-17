@@ -17,8 +17,9 @@ public class HerbalDetailActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.herbal_detail);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.herbal_detail);
+		
 		
 		herbalDetail = (ImageView) findViewById(R.id.herbal_detail);
 

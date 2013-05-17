@@ -7,14 +7,14 @@
 
     <RelativeLayout
         android:id="@+id/confirm_top"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+			android:scaleType="centerCrop"
             android:src="@drawable/confirm_background_top" />
 
         <LinearLayout
@@ -47,12 +47,12 @@
 
     <RelativeLayout
         android:id="@+id/confirm_middle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/confirm_top" >
-
+	
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
@@ -69,28 +69,35 @@
             android:textSize="23dp" />
     </RelativeLayout>
 
-    <ImageView
+    <EditText
         android:id="@+id/input_people"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/confirm_middle"
-        android:adjustViewBounds="true"
-        android:src="@drawable/confirm_input_people" />
-	<ImageView
+        android:inputType="text"
+        android:singleLine="true"
+        android:paddingLeft="30dp"
+        android:background="@drawable/confirm_input_people" />
+	<EditText
         android:id="@+id/input_phone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/input_people"
-        android:adjustViewBounds="true"
-        android:src="@drawable/confirm_input_phone" />
+        android:inputType="phone"
+        android:singleLine="true"
+        android:paddingLeft="30dp"
+        android:background="@drawable/confirm_input_phone" />
     
-	<ImageView
+	<EditText
         android:id="@+id/input_serial"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/input_phone"
-        android:adjustViewBounds="true"
-        android:src="@drawable/confirm_input_serial" />
+        android:inputType="text"
+        android:singleLine="true"
+		android:paddingLeft="30dp"
+        android:background="@drawable/confirm_input_serial" />
     
     <ImageView
         android:id="@+id/button_confirm"
@@ -101,7 +108,13 @@
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_button_confirm" />
 
-    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirm_middle"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/shop_shadow" />
 
     
 </RelativeLayout>
