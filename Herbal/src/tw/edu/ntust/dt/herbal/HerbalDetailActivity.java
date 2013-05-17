@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ImageView;
 
 public class HerbalDetailActivity extends Activity {
@@ -17,6 +18,8 @@ public class HerbalDetailActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.herbal_detail);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		herbalDetail = (ImageView) findViewById(R.id.herbal_detail);
 
 		int num = getIntent().getIntExtra(EXTRA_PRAM_HERBAL_DETAIL_ID, -1);

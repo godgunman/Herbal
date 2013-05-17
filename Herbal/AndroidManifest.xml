@@ -74,7 +74,7 @@
             android:name="tw.edu.ntust.dt.herbal.ConfirmActivity"
             android:label="HERBAL SHOP"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MyAppTheme" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
 
         <meta-data
