@@ -96,7 +96,7 @@ public class ShopActivity extends Activity {
 		mTrayContent = new Tools(this).newImage(R.drawable.shop_store_info1);
 		mTrayContent.setAdjustViewBounds(true);
 		mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		ImageView handler = new Tools(this).newImage(R.drawable.handle);
+		ImageView handler = new Tools(this).newImage(R.drawable.result_handle);
 		handler.setAdjustViewBounds(true);
 		handler.setScaleType(ImageView.ScaleType.CENTER_CROP);
 		mSlidingTray = new WrappingSlidingTray(this, handler, mTrayContent,
