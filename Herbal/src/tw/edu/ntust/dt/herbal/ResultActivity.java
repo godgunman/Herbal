@@ -3,7 +3,9 @@ package tw.edu.ntust.dt.herbal;
 import java.util.Random;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,8 +28,11 @@ public class ResultActivity extends Activity {
 	private Button mealButton;
 	private Button sportButton;
 
+	private ProgressDialog progress;
+
 	private int bmpValue;
 	private int status;
+	private int lastStatus;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +53,20 @@ public class ResultActivity extends Activity {
 	private void updateLeafColor() {
 		int newBmpValue = bmpValue - status * 15;
 		if (newBmpValue < 80) {
+			if (lastStatus == 0)
+				return;
 			leaf.setImageResource(R.drawable.result_leaf3);
+			lastStatus = 0;
 		} else if (newBmpValue < 100) {
+			if (lastStatus == 1)
+				return;
 			leaf.setImageResource(R.drawable.result_leaf2);
+			lastStatus = 1;
 		} else if (newBmpValue < 150) {
+			if (lastStatus == 2)
+				return;
 			leaf.setImageResource(R.drawable.result_leaf1);
+			lastStatus = 2;
 		}
 	}
 
@@ -65,6 +79,8 @@ public class ResultActivity extends Activity {
 		normalButton = (Button) findViewById(R.id.result_button_normal);
 		mealButton = (Button) findViewById(R.id.result_button_meal);
 		sportButton = (Button) findViewById(R.id.result_button_sport);
+
+		progress = new ProgressDialog(this);
 	}
 
 	private void setContent() {
@@ -76,22 +92,22 @@ public class ResultActivity extends Activity {
 		normalButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				buttonBackground
-						.setImageResource(R.drawable.result_head_button_normal);
-				ResultActivity.this.status = 0;
-				updateLeafColor();
 				Log.d("debug", "normal");
+				if (ResultActivity.this.status == 0) {
+					return;
+				}
+				new ImageLoadTask().execute(R.drawable.result_head_button_normal, 0);
 			}
 		});
 
 		mealButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				buttonBackground
-						.setImageResource(R.drawable.result_head_button_meal);
-				ResultActivity.this.status = 1;
-				updateLeafColor();
 				Log.d("debug", "meal");
+				if (ResultActivity.this.status == 1) {
+					return;
+				}
+				new ImageLoadTask().execute(R.drawable.result_head_button_meal, 1);
 			}
 		});
 
@@ -99,11 +115,11 @@ public class ResultActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				buttonBackground
-						.setImageResource(R.drawable.result_head_button_sport);
-				ResultActivity.this.status = 2;
-				updateLeafColor();
 				Log.d("debug", "sport");
+				if (ResultActivity.this.status == 2) {
+					return;
+				}
+				new ImageLoadTask().execute(R.drawable.result_head_button_sport, 2);
 			}
 		});
 	}
@@ -114,6 +130,43 @@ public class ResultActivity extends Activity {
 		getMenuInflater().inflate(R.menu.result, menu);
 		return true;
 	}
+
+	class ImageLoadTask extends AsyncTask<Integer, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+			progress.setTitle("讀取中");
+			progress.show();
+		}
+
+		@Override
+		protected Void doInBackground(Integer... params) {
+			// TODO Auto-generated method stub
+			final int rid = params[0];
+			final int status = params[1];
+			ResultActivity.this.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					ResultActivity.this.buttonBackground.setImageResource(rid);
+					ResultActivity.this.status = status;
+					updateLeafColor();
+				}
+			});
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			progress.dismiss();
+		}
+	};
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
