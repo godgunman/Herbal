@@ -70,6 +70,12 @@
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
+        <activity
+            android:name="tw.edu.ntust.dt.herbal.ConfirmActivity"
+            android:label="HERBAL SHOP"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.MyAppTheme" >
+        </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

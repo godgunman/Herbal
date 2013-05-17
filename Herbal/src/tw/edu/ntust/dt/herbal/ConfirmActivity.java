@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 
 public class ConfirmActivity extends Activity {
 
 	String cart[];
+	
+	private TextView mPriceTextView;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -16,6 +19,9 @@ public class ConfirmActivity extends Activity {
 		
 		cart = getIntent().getExtras().getStringArray("cart");
 		generateCartList();
+		
+		mPriceTextView = (TextView) findViewById(R.id.price);
+		mPriceTextView.setText(""+cart.length*150);
 	}
 	
 	private void generateCartList(){
@@ -32,5 +38,6 @@ public class ConfirmActivity extends Activity {
 			parent.addView(image, params);
 		}
 	}
+	
 	
 }
