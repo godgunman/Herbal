@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.AvoidXfermode.Mode;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -104,12 +105,9 @@ public class MeasureActvitiy extends Activity {
 		Paint p = new Paint();
 		p.setColor(Color.BLACK);
 		p.setStrokeWidth(4);
-		// holder.setFormat(PixelFormat.TRANSPARENT);
+		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
-		// canvas.drawColor(Color.WHITE);
-		canvas.restore();
-		// canvas.setBitmap(BitmapFactory.decodeResource(getResources(),
-		// R.drawable.background_black));
+		canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
 
 		int counter = sequence.size() - 1;
 		for (Integer point : sequence) {
@@ -119,10 +117,10 @@ public class MeasureActvitiy extends Activity {
 	}
 
 	private void clear(SurfaceHolder holder) {
+		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
-		canvas.drawColor(Color.WHITE);
+		canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
 		holder.unlockCanvasAndPost(canvas);
-
 	}
 
 	@Override
