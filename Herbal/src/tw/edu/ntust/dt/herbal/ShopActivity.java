@@ -139,14 +139,14 @@ public class ShopActivity extends Activity {
 				break;
 			case R.id.shop_button_2:
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_2);
-				mTrayContent.setImageResource(R.drawable.shop_store_info3);
+				mTrayContent.setImageResource(R.drawable.shop_store_info2);
 				mTrayContent.setAdjustViewBounds(true);
 				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 				break;
 			case R.id.shop_button_3:
 				mHeadButtonBackground.setImageResource(R.drawable.shop_button_3);
-				mTrayContent.setImageResource(R.drawable.shop_store_info2);
+				mTrayContent.setImageResource(R.drawable.shop_store_info3);
 				mTrayContent.setAdjustViewBounds(true);
 				mTrayContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				mTrayContent.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
