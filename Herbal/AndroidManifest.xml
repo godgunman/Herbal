@@ -22,10 +22,12 @@
         <activity
             android:name="tw.edu.ntust.dt.herbal.LoginActivity"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.DashboardActivity"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,39 +38,42 @@
         <activity
             android:name="tw.edu.ntust.dt.herbal.MeasureActvitiy"
             android:label="MEASURE"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.ResultActivity"
             android:label="RESULT"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.HistoryActivity"
             android:label="HISTORY"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.SymptomActivity"
             android:label="SYMPTOM"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.ShopActivity"
             android:label="HERBAL SHOP"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.HerbalDetailActivity"
-            android:theme="@android:style/Theme.Dialog">
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
-		<activity
-            android:name="tw.edu.ntust.dt.herbal.ConfirmActivity"
-            android:theme="@style/Theme.MyAppTheme">
-        </activity>
-        
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
+            android:launchMode="singleTop"
             android:value="@string/facebook_app_id" />
     </application>
 
