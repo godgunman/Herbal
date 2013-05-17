@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.xml.datatype.Duration;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -37,12 +39,15 @@ public class MeasureActvitiy extends Activity {
 	private List<Integer> points;
 	private Timer timer;
 
+	private boolean isRunning = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.measure);
+
 		bmpTextView = (TextView) findViewById(R.id.bmpTextView);
 		surface = (SurfaceView) findViewById(R.id.chart);
 		surface.setZOrderOnTop(true);
@@ -62,12 +67,12 @@ public class MeasureActvitiy extends Activity {
 				// TODO Auto-generated method stub
 				points = new ArrayList<Integer>();
 				points.add(50);
-				timer = new Timer();
+				// timer = new Timer();
 			}
 
 			@Override
 			public void surfaceDestroyed(SurfaceHolder holder) {
-				timer.cancel();
+				// timer.cancel();
 			}
 		});
 	}
@@ -93,7 +98,7 @@ public class MeasureActvitiy extends Activity {
 
 				@Override
 				public void run() {
-					bmpTextView.setText(String.valueOf(30+tmp));
+					bmpTextView.setText(String.valueOf(30 + tmp));
 				}
 			});
 			points.add(last);
@@ -131,49 +136,56 @@ public class MeasureActvitiy extends Activity {
 		return true;
 	}
 
-	private TimerTask task = new TimerTask() {
-
-		@Override
-		public void run() {
-			autuGenerate(points, 10);
-			drawSequence(holder, points);
-		}
-	};
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
 		case R.id.menu_start: {
 			/* http://teslacoilsw.com/teslaled/ */
-			String flashLightApk = "com.teslacoilsw.intent.FLASHLIGHT";
 
-			if (isApkInstalled(flashLightApk)) {
-				Toast.makeText(this, "請安裝 teslacoilsw apk", Toast.LENGTH_LONG)
-						.show();
-				return true;
-			}
-
-			Intent intent = new Intent(flashLightApk);
-			intent.putExtra("toggle", true);
-			startService(intent);
-			if (timer != null) {
-				try {
-					timer.schedule(task, 1000, 100);
-				} catch (Exception e) {
-					timer.cancel();
-					clear(holder);
+			String title = item.getTitle().toString();
+			if ("start".equals(title)) {
+				String flashLightApk = "com.teslacoilsw.intent.FLASHLIGHT";
+				if (isApkInstalled(flashLightApk)) {
+					Toast.makeText(this, "請安裝 teslacoilsw apk",
+							Toast.LENGTH_LONG).show();
+					return true;
 				}
+
+				Intent intent = new Intent(flashLightApk);
+				intent.putExtra("toggle", true);
+				startService(intent);
+
+				TimerTask task = new TimerTask() {
+					@Override
+					public void run() {
+						autuGenerate(points, 10);
+						drawSequence(holder, points);
+					}
+				};
+
+				timer = new Timer();
+				timer.schedule(task, 1000, 100);
+				item.setTitle("stop");
+				isRunning = true;
+			} else if ("stop".equals(title)) {
+				timer.cancel();
+				item.setTitle("start");
+				isRunning = false;
 			}
 
 			return true;
 		}
 		case R.id.menu_next: {
 
-			Intent intent = new Intent(this, ResultActivity.class);
-			intent.putExtra(ResultActivity.EXTRA_PRAM_BMP,
-					Integer.valueOf(bmpTextView.getText().toString()));
-			startActivity(intent);
+			if (isRunning == false) {
+				Intent intent = new Intent(this, ResultActivity.class);
+				intent.putExtra(ResultActivity.EXTRA_PRAM_BMP,
+						Integer.valueOf(bmpTextView.getText().toString()));
+				startActivity(intent);
+			} else {
+				Toast.makeText(this, "請先按 STOP，再進行下一步。", Toast.LENGTH_LONG).show();
+			}
 			return true;
 		}
 		case R.id.menu_logout:
