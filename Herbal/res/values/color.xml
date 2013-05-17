@@ -5,5 +5,6 @@
     <color name="background_white">#EAE9E9</color>
     <color name="white">#FFFFFF</color>
     <color name="text_price">#8E8A3B</color>
-
+    <color name="bmp_color">#AAAAAA</color>
+    
 </resources>

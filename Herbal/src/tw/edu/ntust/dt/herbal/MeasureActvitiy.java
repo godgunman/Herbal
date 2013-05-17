@@ -27,7 +27,7 @@ import android.widget.Toast;
 public class MeasureActvitiy extends Activity {
 
 	final static int MEASURE_BOUND_MIN = 0;
-	final static int MEASURE_BOUND_MAX = 100;
+	final static int MEASURE_BOUND_MAX = 500;
 
 	private final static String TAG = MeasureActvitiy.class.getSimpleName();
 
@@ -103,7 +103,7 @@ public class MeasureActvitiy extends Activity {
 
 	private void drawSequence(SurfaceHolder holder, List<Integer> sequence) {
 		Paint p = new Paint();
-		p.setColor(Color.BLACK);
+		p.setColor(Color.rgb(170, 170, 170));
 		p.setStrokeWidth(4);
 		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
