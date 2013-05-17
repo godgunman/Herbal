@@ -27,7 +27,7 @@ import android.widget.Toast;
 public class MeasureActvitiy extends Activity {
 
 	final static int MEASURE_BOUND_MIN = 0;
-	final static int MEASURE_BOUND_MAX = 500;
+	final static int MEASURE_BOUND_MAX = 100;
 
 	private final static String TAG = MeasureActvitiy.class.getSimpleName();
 
@@ -74,10 +74,10 @@ public class MeasureActvitiy extends Activity {
 
 	private void autuGenerate(List<Integer> points, int times) {
 		while (times-- != 0) {
+			final int tmp = points.get(points.size() - 1);
 			int last = points.get(points.size() - 1);
 			int r = (new Random().nextInt()) % 2 == 0 ? 1 : -1;
-			final int d;
-			final String bmpText = bmpTextView.getText().toString();
+			int d = 0;
 
 			if (last + r * 2 < MEASURE_BOUND_MIN) {
 				last -= r * 2;
@@ -93,8 +93,7 @@ public class MeasureActvitiy extends Activity {
 
 				@Override
 				public void run() {
-					bmpTextView.setText(String.valueOf(Integer.valueOf(bmpText)
-							+ d));
+					bmpTextView.setText(String.valueOf(30+tmp));
 				}
 			});
 			points.add(last);
@@ -107,7 +106,8 @@ public class MeasureActvitiy extends Activity {
 		p.setStrokeWidth(4);
 		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
-		canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
+		canvas.drawColor(Color.TRANSPARENT,
+				android.graphics.PorterDuff.Mode.CLEAR);
 
 		int counter = sequence.size() - 1;
 		for (Integer point : sequence) {
@@ -119,7 +119,8 @@ public class MeasureActvitiy extends Activity {
 	private void clear(SurfaceHolder holder) {
 		holder.setFormat(PixelFormat.TRANSPARENT);
 		Canvas canvas = holder.lockCanvas();
-		canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
+		canvas.drawColor(Color.TRANSPARENT,
+				android.graphics.PorterDuff.Mode.CLEAR);
 		holder.unlockCanvasAndPost(canvas);
 	}
 
@@ -134,7 +135,7 @@ public class MeasureActvitiy extends Activity {
 
 		@Override
 		public void run() {
-			autuGenerate(points, 20);
+			autuGenerate(points, 10);
 			drawSequence(holder, points);
 		}
 	};
