@@ -39,8 +39,9 @@ public class ConfirmActivity extends Activity {
 		mPriceTextView.setText("$"+cart.length*150);
 		
 		mInputPeople = (EditText) findViewById(R.id.input_people);
-		mInputPeople = (EditText) findViewById(R.id.input_phone);
-		mInputPeople = (EditText) findViewById(R.id.input_serial);
+		mInputPhone = (EditText) findViewById(R.id.input_phone);
+		mInputSerial = (EditText) findViewById(R.id.input_serial);
+
 		
 		mConfirmButton = (ImageView) findViewById(R.id.button_confirm);
 		mConfirmButton.setOnClickListener(new OnClickListener() {
