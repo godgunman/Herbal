@@ -5,6 +5,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -79,6 +80,7 @@ public class ResultActivity extends Activity {
 						.setImageResource(R.drawable.result_head_button_normal);
 				ResultActivity.this.status = 0;
 				updateLeafColor();
+				Log.d("debug", "normal");
 			}
 		});
 
@@ -89,6 +91,7 @@ public class ResultActivity extends Activity {
 						.setImageResource(R.drawable.result_head_button_meal);
 				ResultActivity.this.status = 1;
 				updateLeafColor();
+				Log.d("debug", "meal");
 			}
 		});
 
@@ -100,6 +103,7 @@ public class ResultActivity extends Activity {
 						.setImageResource(R.drawable.result_head_button_sport);
 				ResultActivity.this.status = 2;
 				updateLeafColor();
+				Log.d("debug", "sport");
 			}
 		});
 	}
