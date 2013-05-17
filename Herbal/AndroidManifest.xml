@@ -29,6 +29,11 @@
             android:name="tw.edu.ntust.dt.herbal.DashboardActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.MyAppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="tw.edu.ntust.dt.herbal.MeasureActvitiy"
@@ -70,11 +75,6 @@
             android:label="HERBAL SHOP"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

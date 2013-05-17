@@ -8,13 +8,13 @@
     <RelativeLayout
         android:id="@+id/confirm_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-			android:scaleType="centerCrop"
+            android:scaleType="centerCrop"
             android:src="@drawable/confirm_background_top" />
 
         <LinearLayout
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/confirm_top" >
-	
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,47 +64,56 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textColor="@color/text_price"
             android:text="$740"
+            android:textColor="@color/text_price"
             android:textSize="53dp" />
     </RelativeLayout>
 
     <EditText
         android:id="@+id/input_people"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
         android:layout_below="@id/confirm_middle"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/confirm_input_people"
         android:inputType="text"
-        android:singleLine="true"
-        android:paddingLeft="30dp"
-        android:background="@drawable/confirm_input_people" />
-	<EditText
+        android:paddingLeft="200dp"
+        android:textColor="@color/bmp_color"
+        android:hint="NAME"
+        android:singleLine="true" />
+
+    <EditText
         android:id="@+id/input_phone"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_below="@id/input_people"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/confirm_input_phone"
         android:inputType="phone"
-        android:singleLine="true"
-        android:paddingLeft="30dp"
-        android:background="@drawable/confirm_input_phone" />
-    
-	<EditText
+        android:paddingLeft="200dp"
+        android:textColor="@color/bmp_color"
+        android:hint="PHONE"
+        android:singleLine="true" />
+
+    <EditText
         android:id="@+id/input_serial"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_below="@id/input_phone"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/confirm_input_serial"
         android:inputType="text"
-        android:singleLine="true"
-		android:paddingLeft="30dp"
-        android:background="@drawable/confirm_input_serial" />
-    
+        android:paddingLeft="200dp"
+        android:textColor="@color/bmp_color"
+        android:hint="SERIAL"
+        android:singleLine="true" />
+
     <ImageView
         android:id="@+id/button_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/input_serial"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/input_serial"
         android:adjustViewBounds="true"
         android:src="@drawable/confirm_button_confirm" />
 
@@ -116,5 +125,4 @@
         android:scaleType="centerCrop"
         android:src="@drawable/shop_shadow" />
 
-    
 </RelativeLayout>
