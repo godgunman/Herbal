@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class ResultActivity extends Activity {
 
@@ -15,6 +16,12 @@ public class ResultActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
+
+		int resId = getIntent().getIntExtra("result", -1);
+		if (resId != -1) {
+			((ImageView) findViewById(R.id.result_image))
+					.setImageResource(resId);
+		}
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -30,10 +37,10 @@ public class ResultActivity extends Activity {
 
 			protected void onPostExecute(Void result) {
 				findViewById(R.id.progressBar).setVisibility(View.GONE);
-				
+
 				Animation animationFadeIn = AnimationUtils.loadAnimation(
 						ResultActivity.this, R.anim.fadein);
-				
+
 				View afterLoading = findViewById(R.id.after_lading);
 				afterLoading.setVisibility(View.VISIBLE);
 				afterLoading.startAnimation(animationFadeIn);

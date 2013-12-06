@@ -9,7 +9,7 @@ public class AllActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cover);
+        setContentView(R.layout.activity_all);
     }
 
 

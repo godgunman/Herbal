@@ -1,8 +1,44 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView1"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".UploadActivity" >
 
-</ScrollView>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="SHIDAN HUANG"
+        android:textColor="@android:color/white"
+        android:textSize="50dp" />
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="clickNextButton"
+        android:scaleType="fitCenter"
+        android:src="@drawable/upload_button_camera"
+        android:text="Button" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/next_button"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="19dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/upload_jian" />
+
+</RelativeLayout>

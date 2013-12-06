@@ -17,9 +17,9 @@ public class HerbalDiscoverAdapter extends PagerAdapter {
 	public final static int CATEOGRY_TYPE_FRAME = 1;
 
 	public final static int[] HEADER_IDS = {
-			R.drawable.result_search_png_normal,
-			R.drawable.result_search_png_pressed,
-			R.drawable.result_search_png_normal, };
+			R.drawable.herb_dog,
+			R.drawable.herb_dragon,
+			R.drawable.herb_fish, };
 
 	private List<ImageView> mViews;
 	private int currentCategoryType;

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ResultActivity" >
 
     <ImageView
@@ -11,9 +12,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
+        android:onClick="completeDiscover"
         android:scaleType="fitXY"
-        android:src="@drawable/discover_bar"
-        android:onClick="completeDiscover" />
+        android:src="@drawable/discover_bar" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/herbal_list"

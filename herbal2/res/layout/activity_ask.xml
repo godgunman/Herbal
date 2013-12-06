@@ -1,37 +1,36 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CoverActivity" >
+    tools:context=".AskActivity" >
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/ask_no"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ask_question"
+        android:adjustViewBounds="true"
+        android:onClick="clickImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ask_0_no" />
 
-        <ImageView
-            android:id="@+id/ask_no"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ask_1_no" />
+    <ImageView
+        android:id="@+id/ask_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ask_0" />
 
-        <ImageView
-            android:id="@+id/ask_question"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ask_no"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ask_1" />
+    <ImageView
+        android:id="@+id/ask_yes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ask_question"
+        android:adjustViewBounds="true"
+        android:onClick="clickImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ask_0_yes" />
 
-        <ImageView
-            android:id="@+id/ask_yes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ask_question"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ask_1_yes" />
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>
