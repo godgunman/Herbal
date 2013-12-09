@@ -4,6 +4,7 @@ import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter.OnCategoryItemClickListener;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
@@ -27,11 +28,8 @@ public class DiscoverActivity extends Activity {
 					}
 				});
 
-		int resId = getIntent().getIntExtra("result", -1);
-		if (resId == -1) {
-			resId = R.drawable.result_jian;
-		}
-
+		int resId = getSharedPreferences("herbal", Context.MODE_PRIVATE).getInt(
+				"resId", R.drawable.result_jian);
 		adapter.setCategoryType(resId);
 
 		pager = (ViewPager) findViewById(R.id.herbal_list);
