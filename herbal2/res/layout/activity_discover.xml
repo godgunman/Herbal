@@ -16,6 +16,14 @@
         android:scaleType="fitXY"
         android:src="@drawable/discover_bar" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status_image"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/discover_bg" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/herbal_list"
         android:layout_width="match_parent"
