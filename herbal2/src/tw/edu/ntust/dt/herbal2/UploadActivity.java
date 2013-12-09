@@ -272,6 +272,7 @@ public class UploadActivity extends Activity {
 							shareIntent.setType("image/jpeg");
 //							shareIntent.setComponent(ComponentName
 //									.unflattenFromString("com.facebook.katana/.activity.composer.ComposerActivity"));
+							shareIntent.setPackage("com.facebook.katana");
 							startActivity(shareIntent);
 						}
 					});
