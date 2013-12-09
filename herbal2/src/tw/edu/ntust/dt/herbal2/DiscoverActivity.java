@@ -18,6 +18,14 @@ public class DiscoverActivity extends Activity {
 		setContentView(R.layout.activity_discover);
 
 		HerbalDiscoverAdapter adapter = new HerbalDiscoverAdapter(this);
+		
+		int resId = getIntent().getIntExtra("result", -1);
+		if (resId == -1) {
+			resId = R.drawable.result_jian;
+		}
+		
+		adapter.setCategoryType(resId);
+
 		pager = (ViewPager) findViewById(R.id.herbal_list);
 		pager.setAdapter(adapter);
 	}

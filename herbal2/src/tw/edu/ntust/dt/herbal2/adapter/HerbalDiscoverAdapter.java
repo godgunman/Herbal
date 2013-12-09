@@ -1,11 +1,13 @@
 package tw.edu.ntust.dt.herbal2.adapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import tw.edu.ntust.dt.herbal2.R;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -13,13 +15,38 @@ import android.widget.ImageView;
 
 public class HerbalDiscoverAdapter extends PagerAdapter {
 
+	public static SparseArray<List<Integer>> data;
+
 	public final static int CATEOGRY_TYPE_STICKER = 0;
 	public final static int CATEOGRY_TYPE_FRAME = 1;
 
-	public final static int[] HEADER_IDS = {
-			R.drawable.herb_dog,
-			R.drawable.herb_dragon,
-			R.drawable.herb_fish, };
+	static {
+		data = new SparseArray<List<Integer>>();
+		
+		data.put(R.drawable.result_jian,
+				Arrays.asList(R.drawable.herb_hsian, R.drawable.herb_mint));
+		data.put(R.drawable.result_jie, Arrays.asList(R.drawable.herb_shell,
+				R.drawable.herb_gochi, R.drawable.herb_white));
+		data.put(R.drawable.result_nee, Arrays.asList(R.drawable.herb_flower,
+				R.drawable.herb_dog, R.drawable.herb_jinin,
+				R.drawable.herb_fish));
+		data.put(R.drawable.result_ya, Arrays.asList(R.drawable.herb_shell,
+				R.drawable.herb_lu, R.drawable.herb_jinin, R.drawable.herb_shy));
+		data.put(R.drawable.result_yen, Arrays.asList(R.drawable.herb_lu,
+				R.drawable.herb_grape, R.drawable.herb_jinin,
+				R.drawable.herb_fish));
+		data.put(R.drawable.result_yenyen, Arrays.asList(
+				R.drawable.herb_dragon, R.drawable.herb_flower,
+				R.drawable.herb_one, R.drawable.herb_fish));
+		/*
+		 * if_jian__hsian+mint
+		 * if_jie__shell+gochi+mao+white
+		 * if_nee__flower+dog+jinin+fish
+		 * if_jian__hsian+mint if_jie__shell+gochi+mao+white
+		 * if_nee__flower+dog+jinin+fish if_ya__shell+lu+jinin+shy
+		 * if_yen__lu+grape+jinin+fish if_yenyen__dragon+flower+one+fish
+		 */
+	}
 
 	private List<ImageView> mViews;
 	private int currentCategoryType;
@@ -29,9 +56,8 @@ public class HerbalDiscoverAdapter extends PagerAdapter {
 	public HerbalDiscoverAdapter(Context context) {
 		mViews = new ArrayList<ImageView>();
 
-		for (int i = 0; i < HEADER_IDS.length; i++) {
+		for (int i = 0; i < 5; i++) {
 			ImageView view = new ImageView(context);
-			view.setImageResource(HEADER_IDS[i]);
 			mViews.add(view);
 		}
 	}
@@ -42,9 +68,8 @@ public class HerbalDiscoverAdapter extends PagerAdapter {
 		this.clickListener = clickListener;
 		mViews = new ArrayList<ImageView>();
 
-		for (int i = 0; i < HEADER_IDS.length; i++) {
+		for (int i = 0; i < 5; i++) {
 			ImageView view = new ImageView(context);
-			view.setImageResource(HEADER_IDS[i]);
 			mViews.add(view);
 		}
 	}
@@ -55,14 +80,14 @@ public class HerbalDiscoverAdapter extends PagerAdapter {
 
 	@Override
 	public int getCount() {
-		return HEADER_IDS.length;
+		return data.get(currentCategoryType).size();
 	}
 
 	@Override
 	public Object instantiateItem(ViewGroup container, final int position) {
 
 		ImageView image = mViews.get(position);
-		image.setImageResource(HEADER_IDS[position]);
+		image.setImageResource(data.get(currentCategoryType).get(position));
 		image.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -14,16 +14,19 @@ import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 
+	private int resId;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
 
-		int resId = getIntent().getIntExtra("result", -1);
-		if (resId != -1) {
-			((ImageView) findViewById(R.id.result_image))
-					.setImageResource(resId);
+		resId = getIntent().getIntExtra("result", -1);
+		if (resId == -1) {
+			resId = R.drawable.result_jian;
 		}
+		((ImageView) findViewById(R.id.result_image)).setImageResource(resId);
+
 		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
 				.getString("name", "unknown");
 		((TextView) findViewById(R.id.name)).setText(name);
@@ -69,6 +72,7 @@ public class ResultActivity extends Activity {
 	public void clickSearchButton(View view) {
 		Intent intent = new Intent();
 		intent.setClass(this, DiscoverActivity.class);
+		intent.putExtra("result", resId);
 		startActivity(intent);
 	}
 }
