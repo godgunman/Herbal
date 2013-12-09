@@ -36,12 +36,14 @@
             android:onClick="clickSearchButton" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="33dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="SHIDAN HUANG"
             android:textColor="@android:color/white"
