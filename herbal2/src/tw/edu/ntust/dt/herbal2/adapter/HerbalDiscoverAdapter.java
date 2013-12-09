@@ -53,15 +53,6 @@ public class HerbalDiscoverAdapter extends PagerAdapter {
 
 	private OnCategoryItemClickListener clickListener;
 
-	public HerbalDiscoverAdapter(Context context) {
-		mViews = new ArrayList<ImageView>();
-
-		for (int i = 0; i < 5; i++) {
-			ImageView view = new ImageView(context);
-			mViews.add(view);
-		}
-	}
-
 	public HerbalDiscoverAdapter(Context context,
 			final OnCategoryItemClickListener clickListener) {
 

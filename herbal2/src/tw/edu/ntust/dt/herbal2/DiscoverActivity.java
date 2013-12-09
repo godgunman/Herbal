@@ -1,6 +1,7 @@
 package tw.edu.ntust.dt.herbal2;
 
 import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
+import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter.OnCategoryItemClickListener;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,13 +18,20 @@ public class DiscoverActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_discover);
 
-		HerbalDiscoverAdapter adapter = new HerbalDiscoverAdapter(this);
-		
+		HerbalDiscoverAdapter adapter = new HerbalDiscoverAdapter(this,
+				new OnCategoryItemClickListener() {
+					@Override
+					public void onClick(View view, int categoryType,
+							int targetIndex) {
+						// TODO Auto-generated method stub
+					}
+				});
+
 		int resId = getIntent().getIntExtra("result", -1);
 		if (resId == -1) {
 			resId = R.drawable.result_jian;
 		}
-		
+
 		adapter.setCategoryType(resId);
 
 		pager = (ViewPager) findViewById(R.id.herbal_list);
