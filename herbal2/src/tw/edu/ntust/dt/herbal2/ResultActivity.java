@@ -3,12 +3,14 @@ package tw.edu.ntust.dt.herbal2;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 
@@ -22,6 +24,9 @@ public class ResultActivity extends Activity {
 			((ImageView) findViewById(R.id.result_image))
 					.setImageResource(resId);
 		}
+		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
+				.getString("name", "unknown");
+		((TextView) findViewById(R.id.name)).setText(name);
 
 		new AsyncTask<Void, Void, Void>() {
 
