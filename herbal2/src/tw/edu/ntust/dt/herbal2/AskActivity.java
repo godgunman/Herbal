@@ -1,14 +1,15 @@
 package tw.edu.ntust.dt.herbal2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,15 +18,14 @@ import android.widget.ImageView;
 
 public class AskActivity extends Activity {
 
-	private final static Map<Integer, List<Integer>> edge = new HashMap<Integer, List<Integer>>();
+	// private final static Map<Integer, List<Integer>> edge = new
+	// HashMap<Integer, List<Integer>>();
+
+	private final static SparseArray<List<Integer>> edge = new SparseArray<List<Integer>>();
+
 	private static Animation animationFadeIn;
 
 	private ImageView askQ, askYes, askNo;
-
-	private int[] result = new int[] { R.drawable.result_jian,
-			R.drawable.result_jie, R.drawable.result_loading_png,
-			R.drawable.result_nee, R.drawable.result_ya, R.drawable.result_yen,
-			R.drawable.result_yenyen, };
 
 	private int[][] ask = new int[][] {
 			{ R.drawable.ask_0, R.drawable.ask_0_yes, R.drawable.ask_0_no },
@@ -134,6 +134,12 @@ public class AskActivity extends Activity {
 			askNo.startAnimation(animationFadeIn);
 
 		} else {
+
+			SharedPreferences sp = getSharedPreferences("herbal",
+					Context.MODE_PRIVATE);
+			sp.edit().putInt("resId", currentState);
+			sp.edit().commit();
+
 			Intent intent = new Intent();
 			intent.setClass(this, ResultActivity.class);
 			intent.putExtra("result", currentState);
