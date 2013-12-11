@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C3Cf51"
+    android:background="#000000"
     tools:context=".ResultActivity" >
 
     <ProgressBar
@@ -16,7 +16,7 @@
         android:id="@+id/after_lading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#C3Cf51"
+        android:background="#000000"
         android:visibility="invisible" >
 
         <ImageView

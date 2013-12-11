@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/result_search_png_pressed" android:state_pressed="true"/>
-    <item android:drawable="@drawable/result_search_png_normal"/>
+    <item android:drawable="@drawable/result_search_pressed" android:state_pressed="true"/>
+    <item android:drawable="@drawable/result_search_normal"/>
 
 </selector>
