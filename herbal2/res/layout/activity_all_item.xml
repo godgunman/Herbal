@@ -22,6 +22,12 @@
         android:adjustViewBounds="true"
         android:background="#00000000"
         android:scaleType="fitCenter"
-        android:src="@drawable/all_butoon_tea" />
+        android:src="@drawable/all_button_tea" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/all_button_hr" />
 
 </LinearLayout>
