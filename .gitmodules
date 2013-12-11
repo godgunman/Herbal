@@ -2,3 +2,6 @@
 	path = facebook-android-sdk
   url = git@github.com:facebook/facebook-android-sdk.git
   ignore = dirty
+[submodule "ParallaxScrollView"]
+	path = ParallaxScrollView
+	url = git@github.com:chrisjenx/ParallaxScrollView.git
