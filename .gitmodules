@@ -5,3 +5,4 @@
 [submodule "ParallaxScrollView"]
 	path = ParallaxScrollView
 	url = git@github.com:chrisjenx/ParallaxScrollView.git
+  ignore = dirty
