@@ -6,9 +6,13 @@ import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -17,13 +21,17 @@ public class AllActivity extends Activity {
 	private ImageView resultImage;
 	private LinearLayout root;
 
+	private SharedPreferences sp;
+	private SharedPreferences.Editor editor;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_all);
 
-		int resId = getSharedPreferences("herbal", Context.MODE_PRIVATE)
-				.getInt("resId", R.drawable.result_jian);
+		sp = getSharedPreferences("herbal", Context.MODE_PRIVATE);
+		editor = sp.edit();
+		int resId = sp.getInt("resId", R.drawable.result_jian);
 
 		root = (LinearLayout) findViewById(R.id.root);
 
@@ -33,14 +41,30 @@ public class AllActivity extends Activity {
 		List<Integer> herbals = HerbalDiscoverAdapter.data.get(resId);
 		LayoutInflater layoutInflater = getLayoutInflater();
 
-		for (Integer herbal : herbals) {
+		for (final Integer herbal : herbals) {
+
+			final int recipe = HerbalDiscoverAdapter.herbalToRecipe.get(herbal);
+			OnClickListener onClickListener = new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					editor.putInt("recipeResId", recipe);
+					editor.commit();
+					goToRecipeActivity(v);
+				}
+			};
+
 			View view = layoutInflater
 					.inflate(R.layout.activity_all_item, null);
-			((ImageView) view.findViewById(R.id.herbal))
-					.setImageResource(herbal);
+
+			ImageView img = ((ImageView) view.findViewById(R.id.herbal));
+			img.setImageResource(herbal);
+			img.setOnClickListener(onClickListener);
+
+			view.findViewById(R.id.herbal_method).setOnClickListener(
+					onClickListener);
+
 			root.addView(view);
 		}
-
 	}
 
 	private int getAnotherResultId(int resId) {
@@ -67,6 +91,10 @@ public class AllActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	public void goToRecipeActivity(View view) {
+		startActivity(new Intent(this, RecipeActivity.class));
 	}
 
 }

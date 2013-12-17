@@ -2,13 +2,17 @@ package tw.edu.ntust.dt.herbal2;
 
 import java.io.File;
 import java.util.List;
+import java.util.Random;
 
+import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import tw.edu.ntust.dt.herbal2.view.Preview;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -31,7 +35,8 @@ public class DiscoverActivity extends Activity {
 	private RelativeLayout root;
 	private Preview mPreview;
 	private ImageView resultImage;
-
+	private ImageView discoverGoal;
+	
 	private int numberOfCameras;
 	private int defaultCameraId;
 	private Camera mCamera;
@@ -47,6 +52,7 @@ public class DiscoverActivity extends Activity {
 		mPreview = (Preview) findViewById(R.id.preview);
 		resultImage = (ImageView) findViewById(R.id.result_image);
 		root = (RelativeLayout) findViewById(R.id.root);
+		discoverGoal = (ImageView) findViewById(R.id.discover_goal);
 
 		// Find the total number of cameras available
 		numberOfCameras = Camera.getNumberOfCameras();
@@ -59,7 +65,17 @@ public class DiscoverActivity extends Activity {
 				defaultCameraId = i;
 			}
 		}
+		
+		int resId = getSharedPreferences("herbal", Context.MODE_PRIVATE)
+				.getInt("resId", R.drawable.result_jian);
+		int dataLen = HerbalDiscoverAdapter.discoverData.get(resId).size();
+		int select = new Random().nextInt(dataLen);
+		int discoverGoalResId = HerbalDiscoverAdapter.discoverData.get(resId).get(select);
+		discoverGoal.setImageResource(discoverGoalResId);
 
+		Editor editor = getSharedPreferences("herbal", Context.MODE_PRIVATE).edit();
+		editor.putInt("discoverHerbalId", discoverGoalResId);
+		editor.commit();
 	}
 
 	@Override
@@ -223,4 +239,9 @@ public class DiscoverActivity extends Activity {
 		startActivity(intent);
 	}
 
+	public void clickCloseButton(View view) {
+		Intent intent = new Intent();
+		intent.setClass(this, AllActivity.class);
+		startActivity(intent);
+	}
 }

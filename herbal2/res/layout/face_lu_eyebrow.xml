@@ -62,6 +62,6 @@
         android:layout_below="@+id/name"
         android:layout_marginTop="-10dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/upload_face_gochi" />
+        android:src="@drawable/upload_face_lu_eyebrow" />
 
 </RelativeLayout>

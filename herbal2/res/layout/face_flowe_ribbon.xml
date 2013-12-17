@@ -50,7 +50,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/next_button"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="19dp"
         android:adjustViewBounds="true"
         android:src="@drawable/upload_jian" />
 
@@ -58,10 +57,9 @@
         android:id="@+id/face_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="-10dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/upload_face_gochi" />
+        android:src="@drawable/upload_face_flowe_ribbon" />
 
 </RelativeLayout>

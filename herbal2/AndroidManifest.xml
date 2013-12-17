@@ -28,15 +28,15 @@
         android:largeHeap="true"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
         <activity android:name="CoverActivity" >
+        </activity>
+        <activity android:name="AskActivity" >
+        </activity>
+        <activity android:name="AllActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="AskActivity" >
-        </activity>
-        <activity android:name="AllActivity" >
         </activity>
         <activity android:name="DiscoverActivity" >
         </activity>

@@ -1,21 +1,13 @@
 package tw.edu.ntust.dt.herbal2;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
 
-import com.facebook.Request;
-import com.facebook.Request.Callback;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.model.GraphUser;
-
+import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import tw.edu.ntust.dt.herbal2.view.Preview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -52,6 +44,7 @@ public class UploadActivity extends Activity {
 	private Preview mPreview;
 	private TextView nameTextView;
 	private ImageView resultImage;
+	private ImageView faceTextImage;
 	private ImageButton nextButton;
 
 	private int numberOfCameras;
@@ -64,14 +57,29 @@ public class UploadActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_upload);
+
+		SharedPreferences sp = getSharedPreferences("herbal", Context.MODE_PRIVATE);
+		int discoverHerbalId = sp.getInt("discoverHerbalId", R.drawable.discover_fish);
+		int resId = sp.getInt("resId", R.drawable.result_jian);
+		
+		int faceLayoutId = HerbalDiscoverAdapter.herbalToFaceLayout.get(discoverHerbalId);
+		int faceText = HerbalDiscoverAdapter.resIdToFaceText.get(resId);
+		
+		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
+				.getString("name", "unknown");
+
+		setContentView(faceLayoutId);
 
 		mPreview = (Preview) findViewById(R.id.preview);
 		resultImage = (ImageView) findViewById(R.id.result_image);
+		faceTextImage = (ImageView) findViewById(R.id.face_text);
 		root = (RelativeLayout) findViewById(R.id.root);
 		nextButton = (ImageButton) findViewById(R.id.next_button);
 		nameTextView = (TextView) findViewById(R.id.name);
 
+		nameTextView.setText(name);
+		faceTextImage.setImageResource(faceText);
+		
 		// Find the total number of cameras available
 		numberOfCameras = Camera.getNumberOfCameras();
 
@@ -83,10 +91,6 @@ public class UploadActivity extends Activity {
 				defaultCameraId = i;
 			}
 		}
-
-		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
-				.getString("name", "unknown");
-		nameTextView.setText(name);
 	}
 
 	@Override
@@ -270,8 +274,8 @@ public class UploadActivity extends Activity {
 							shareIntent.putExtra(Intent.EXTRA_STREAM,
 									Uri.fromFile(resultFile));
 							shareIntent.setType("image/jpeg");
-//							shareIntent.setComponent(ComponentName
-//									.unflattenFromString("com.facebook.katana/.activity.composer.ComposerActivity"));
+							// shareIntent.setComponent(ComponentName
+							// .unflattenFromString("com.facebook.katana/.activity.composer.ComposerActivity"));
 							shareIntent.setPackage("com.facebook.katana");
 							startActivity(shareIntent);
 						}
