@@ -1,8 +1,6 @@
 package tw.edu.ntust.dt.herbal2.activity;
 
 import tw.edu.ntust.dt.herbal2.R;
-import tw.edu.ntust.dt.herbal2.R.layout;
-import tw.edu.ntust.dt.herbal2.R.menu;
 
 import com.facebook.Request;
 import com.facebook.Session;

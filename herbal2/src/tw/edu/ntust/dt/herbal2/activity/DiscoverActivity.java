@@ -4,13 +4,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Random;
 
+import tw.edu.ntust.dt.herbal2.DataHelper;
 import tw.edu.ntust.dt.herbal2.R;
 import tw.edu.ntust.dt.herbal2.Utils;
-import tw.edu.ntust.dt.herbal2.R.drawable;
-import tw.edu.ntust.dt.herbal2.R.id;
-import tw.edu.ntust.dt.herbal2.R.layout;
-import tw.edu.ntust.dt.herbal2.R.menu;
-import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import tw.edu.ntust.dt.herbal2.view.Preview;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -74,9 +70,9 @@ public class DiscoverActivity extends Activity {
 		
 		int resId = getSharedPreferences("herbal", Context.MODE_PRIVATE)
 				.getInt("resId", R.drawable.result_jian);
-		int dataLen = HerbalDiscoverAdapter.discoverData.get(resId).size();
+		int dataLen = DataHelper.discoverData.get(resId).size();
 		int select = new Random().nextInt(dataLen);
-		int discoverGoalResId = HerbalDiscoverAdapter.discoverData.get(resId).get(select);
+		int discoverGoalResId = DataHelper.discoverData.get(resId).get(select);
 		discoverGoal.setImageResource(discoverGoalResId);
 
 		Editor editor = getSharedPreferences("herbal", Context.MODE_PRIVATE).edit();

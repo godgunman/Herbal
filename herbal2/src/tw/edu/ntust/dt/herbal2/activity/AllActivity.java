@@ -2,18 +2,13 @@ package tw.edu.ntust.dt.herbal2.activity;
 
 import java.util.List;
 
+import tw.edu.ntust.dt.herbal2.DataHelper;
 import tw.edu.ntust.dt.herbal2.R;
-import tw.edu.ntust.dt.herbal2.R.drawable;
-import tw.edu.ntust.dt.herbal2.R.id;
-import tw.edu.ntust.dt.herbal2.R.layout;
-import tw.edu.ntust.dt.herbal2.R.menu;
-import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -43,12 +38,12 @@ public class AllActivity extends Activity {
 		resultImage = (ImageView) findViewById(R.id.result_image);
 		resultImage.setImageResource(getAnotherResultId(resId));
 
-		List<Integer> herbals = HerbalDiscoverAdapter.data.get(resId);
+		List<Integer> herbals = DataHelper.resIdToHerbals.get(resId);
 		LayoutInflater layoutInflater = getLayoutInflater();
 
 		for (final Integer herbal : herbals) {
 
-			final int recipe = HerbalDiscoverAdapter.herbalToRecipe.get(herbal);
+			final int recipe = DataHelper.herbalToRecipe.get(herbal);
 			OnClickListener onClickListener = new OnClickListener() {
 				@Override
 				public void onClick(View v) {

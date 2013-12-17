@@ -3,12 +3,9 @@ package tw.edu.ntust.dt.herbal2.activity;
 import java.io.File;
 import java.util.List;
 
+import tw.edu.ntust.dt.herbal2.DataHelper;
 import tw.edu.ntust.dt.herbal2.R;
 import tw.edu.ntust.dt.herbal2.Utils;
-import tw.edu.ntust.dt.herbal2.R.drawable;
-import tw.edu.ntust.dt.herbal2.R.id;
-import tw.edu.ntust.dt.herbal2.R.menu;
-import tw.edu.ntust.dt.herbal2.adapter.HerbalDiscoverAdapter;
 import tw.edu.ntust.dt.herbal2.view.Preview;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -67,8 +64,8 @@ public class UploadActivity extends Activity {
 		int discoverHerbalId = sp.getInt("discoverHerbalId", R.drawable.discover_fish);
 		int resId = sp.getInt("resId", R.drawable.result_jian);
 		
-		int faceLayoutId = HerbalDiscoverAdapter.herbalToFaceLayout.get(discoverHerbalId);
-		int faceText = HerbalDiscoverAdapter.resIdToFaceText.get(resId);
+		int faceLayoutId = DataHelper.herbalToFaceLayout.get(discoverHerbalId);
+		int faceText = DataHelper.resIdToFaceText.get(resId);
 		
 		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
 				.getString("name", "unknown");
