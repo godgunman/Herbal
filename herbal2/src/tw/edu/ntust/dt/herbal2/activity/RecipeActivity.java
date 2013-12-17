@@ -1,5 +1,10 @@
-package tw.edu.ntust.dt.herbal2;
+package tw.edu.ntust.dt.herbal2.activity;
 
+import tw.edu.ntust.dt.herbal2.R;
+import tw.edu.ntust.dt.herbal2.R.drawable;
+import tw.edu.ntust.dt.herbal2.R.id;
+import tw.edu.ntust.dt.herbal2.R.layout;
+import tw.edu.ntust.dt.herbal2.R.menu;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
