@@ -26,9 +26,8 @@ public class DataHelper {
 
 		resIdToHerbals.put(R.drawable.result_jian,
 				Arrays.asList(R.drawable.herb_hsian, R.drawable.herb_mint));
-		resIdToHerbals.put(R.drawable.result_jie, Arrays.asList(
-				R.drawable.herb_shell, R.drawable.herb_gochi,
-				R.drawable.herb_white));
+		resIdToHerbals.put(R.drawable.result_jie,
+				Arrays.asList(R.drawable.herb_shell, R.drawable.herb_gochi));
 		resIdToHerbals.put(R.drawable.result_nee, Arrays.asList(
 				R.drawable.herb_flower, R.drawable.herb_dog,
 				R.drawable.herb_jinin, R.drawable.herb_fish));
@@ -74,15 +73,16 @@ public class DataHelper {
 				R.layout.face_jinin_bite);
 		herbalToFaceLayout
 				.put(R.drawable.discover_lu, R.layout.face_lu_eyebrow);
-		herbalToFaceLayout
-				.put(R.drawable.herb_mint, R.layout.face_mint_eyebrow);
+		herbalToFaceLayout.put(R.drawable.discover_mint,
+				R.layout.face_mint_eyebrow);
 		herbalToFaceLayout.put(R.drawable.discover_one, R.layout.face_one_head);
 		herbalToFaceLayout.put(R.drawable.discover_shell,
 				R.layout.face_shell_nose);
 		herbalToFaceLayout.put(R.drawable.discover_shy,
 				R.layout.face_shy_glasses);
-		herbalToFaceLayout
-				.put(R.drawable.herb_white, R.layout.face_white_mouth);
+		herbalToFaceLayout.put(R.drawable.discover_fish,
+				R.layout.face_fish_mouth);
+		// fixme(ggm)
 
 		resIdToFaceText = new SparseIntArray();
 		resIdToFaceText.put(R.drawable.result_jian, R.drawable.upload_jian);
@@ -106,7 +106,6 @@ public class DataHelper {
 		herbalToRecipe.put(R.drawable.herb_one, R.drawable.recipe_one);
 		herbalToRecipe.put(R.drawable.herb_shell, R.drawable.recipe_shell);
 		herbalToRecipe.put(R.drawable.herb_shy, R.drawable.recipe_shy);
-		herbalToRecipe.put(R.drawable.herb_white, R.drawable.recipe_white);
 
 		herbalToCook = new SparseIntArray();
 		herbalToCook.put(R.drawable.herb_dragon,
@@ -130,8 +129,6 @@ public class DataHelper {
 		herbalToCook.put(R.drawable.herb_shell,
 				R.drawable.all_button_cook_normal);
 		herbalToCook.put(R.drawable.herb_shy, R.drawable.all_button_tea_normal);
-		herbalToCook.put(R.drawable.herb_white,
-				R.drawable.all_button_cook_normal);
 
 		herbalDiscoverResIdToName = new SparseArray<String>();
 		herbalDiscoverResIdToName.put(R.drawable.discover_fish, "single_fish");
