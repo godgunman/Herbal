@@ -17,6 +17,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.CameraInfo;
@@ -67,6 +68,7 @@ public class UploadActivity extends Activity {
 		int faceLayoutId = DataHelper.herbalToFaceLayout.get(discoverHerbalId);
 		int faceText = DataHelper.resIdToFaceText.get(resId);
 		
+		
 		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
 				.getString("name", "unknown");
 
@@ -80,6 +82,8 @@ public class UploadActivity extends Activity {
 		nameTextView = (TextView) findViewById(R.id.name);
 
 		nameTextView.setText(name);
+		nameTextView.setTypeface(Typeface.createFromAsset(getAssets(), "hk.otf"));
+		
 		faceTextImage.setImageResource(faceText);
 		
 		// Find the total number of cameras available
