@@ -36,7 +36,7 @@
         android:background="?android:attr/selectableItemBackground"
         android:onClick="clickCloseButton"
         android:scaleType="fitCenter"
-        android:src="@drawable/upload_button_camera"
+        android:src="@drawable/discover_button_close"
         android:text="Button" />
 
 </RelativeLayout>
