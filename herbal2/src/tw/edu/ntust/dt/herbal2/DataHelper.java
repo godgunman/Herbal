@@ -152,7 +152,7 @@ public class DataHelper {
 		herbalDiscoverResIdToChineseName = new HashMap<String, String>();
 		herbalDiscoverResIdToChineseName.put("single_fish", "魚腥草");
 		herbalDiscoverResIdToChineseName.put("single_flower", "洛神花");
-		herbalDiscoverResIdToChineseName.put("single_grape", "小本山葡萄");
+		herbalDiscoverResIdToChineseName.put("single_grape", "小山本葡萄");
 		herbalDiscoverResIdToChineseName.put("single_hsian", "仙草");
 		herbalDiscoverResIdToChineseName.put("single_jinin", "小金英");
 		herbalDiscoverResIdToChineseName.put("single_lu", "蘆薈");
