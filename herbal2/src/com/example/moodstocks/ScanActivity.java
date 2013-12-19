@@ -90,6 +90,7 @@ public class ScanActivity extends Activity implements ScannerSession.Listener {
 			public void onClick(View v) {
 				if (nextActivity == null)
 					return;
+				session.close();
 				startActivity(nextActivity);
 			}
 		});
@@ -99,6 +100,7 @@ public class ScanActivity extends Activity implements ScannerSession.Listener {
 			public boolean onLongClick(View v) {
 				if (nextActivity == null)
 					return false;
+				session.close();
 				startActivity(nextNextActivity);
 				return false;
 			}
@@ -176,6 +178,7 @@ public class ScanActivity extends Activity implements ScannerSession.Listener {
 								session.resume();
 							}
 						});
+				builder.setCancelable(false);
 				builder.create().show();
 			} else {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -187,6 +190,7 @@ public class ScanActivity extends Activity implements ScannerSession.Listener {
 								finish();
 							}
 						});
+				builder.setCancelable(false);
 				builder.create().show();
 			}
 		}
