@@ -26,6 +26,7 @@ public class AskActivity extends Activity {
 	private final static SparseArray<List<Integer>> edge = new SparseArray<List<Integer>>();
 
 	private static Animation animationFadeIn;
+	private static Animation animationFadeIn2;
 
 	private ImageView askQ, askYes, askNo;
 
@@ -95,6 +96,8 @@ public class AskActivity extends Activity {
 
 	private int currentState = 0;
 
+	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -105,6 +108,7 @@ public class AskActivity extends Activity {
 		askNo = (ImageView) findViewById(R.id.ask_no);
 
 		animationFadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein);
+		animationFadeIn2 = AnimationUtils.loadAnimation(this, R.anim.fadein2);
 	}
 
 	@Override
@@ -132,8 +136,8 @@ public class AskActivity extends Activity {
 			askNo.setImageResource(ask[state % 8][2]);
 
 			askQ.startAnimation(animationFadeIn);
-			askYes.startAnimation(animationFadeIn);
-			askNo.startAnimation(animationFadeIn);
+			askYes.startAnimation(animationFadeIn2);
+			askNo.startAnimation(animationFadeIn2);
 
 		} else {
 
