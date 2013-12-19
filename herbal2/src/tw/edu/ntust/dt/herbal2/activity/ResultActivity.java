@@ -1,11 +1,18 @@
 package tw.edu.ntust.dt.herbal2.activity;
 
+import java.util.Random;
+
+import com.example.moodstocks.MainActivity;
+import com.example.moodstocks.ScanActivity;
+
+import tw.edu.ntust.dt.herbal2.DataHelper;
 import tw.edu.ntust.dt.herbal2.R;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,18 +22,21 @@ import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 
+	private int resId;
+	private String fbName;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
 
-		int resId = getSharedPreferences("herbal", Context.MODE_PRIVATE).getInt(
+		resId = getSharedPreferences("herbal", Context.MODE_PRIVATE).getInt(
 				"resId", R.drawable.result_jian);
-		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
+		fbName = getSharedPreferences("fb", Context.MODE_PRIVATE)
 				.getString("name", "unknown");
 
 		((ImageView) findViewById(R.id.result_image)).setImageResource(resId);
-		((TextView) findViewById(R.id.name)).setText(name);
+		((TextView) findViewById(R.id.name)).setText(fbName);
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -67,8 +77,17 @@ public class ResultActivity extends Activity {
 	 * @param view
 	 */
 	public void clickSearchButton(View view) {
+		
+		int dataLen = DataHelper.discoverData.get(resId).size();
+		int select = new Random().nextInt(dataLen);
+		int discoverGoalResId = DataHelper.discoverData.get(resId).get(select);
+
+		Editor editor = getSharedPreferences("herbal", Context.MODE_PRIVATE).edit();
+		editor.putInt("discoverHerbalId", discoverGoalResId);
+		editor.commit();
+		
 		Intent intent = new Intent();
-		intent.setClass(this, DiscoverActivity.class);
+		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
 	}
 }

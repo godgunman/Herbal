@@ -61,7 +61,8 @@ public class UploadActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		SharedPreferences sp = getSharedPreferences("herbal", Context.MODE_PRIVATE);
-		int discoverHerbalId = sp.getInt("discoverHerbalId", R.drawable.discover_fish);
+		int discoverHerbalId = sp.getInt("discoverHerbalId", R.drawable.herb_dragon);
+		discoverHerbalId = R.drawable.herb_dragon;
 		int resId = sp.getInt("resId", R.drawable.result_jian);
 		
 		int faceLayoutId = DataHelper.herbalToFaceLayout.get(discoverHerbalId);
