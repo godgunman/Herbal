@@ -45,8 +45,8 @@ public class DataHelper {
 		discoverData = new SparseArray<List<Integer>>();
 		discoverData.put(R.drawable.result_jian, Arrays.asList(
 				R.drawable.discover_fish, R.drawable.discover_mint));
-		discoverData.put(R.drawable.result_jie, Arrays.asList(
-				R.drawable.discover_shell, R.drawable.discover_white));
+		discoverData.put(R.drawable.result_jie,
+				Arrays.asList(R.drawable.discover_shell));
 		discoverData.put(R.drawable.result_nee, Arrays.asList(
 				R.drawable.discover_flower, R.drawable.discover_jinin,
 				R.drawable.discover_fish));
@@ -64,22 +64,23 @@ public class DataHelper {
 		 */
 
 		herbalToFaceLayout = new SparseIntArray();
-		herbalToFaceLayout
-				.put(R.drawable.herb_dragon, R.layout.face_dragon_ear);
-		herbalToFaceLayout.put(R.drawable.herb_flower,
+		herbalToFaceLayout.put(R.drawable.discover_flower,
 				R.layout.face_flowe_ribbon);
-		herbalToFaceLayout
-				.put(R.drawable.herb_gochi, R.layout.face_gochi_cheek);
-		herbalToFaceLayout.put(R.drawable.herb_grape, R.layout.face_grape_eyes);
-		herbalToFaceLayout.put(R.drawable.herb_hsian,
+		herbalToFaceLayout.put(R.drawable.discover_grape,
+				R.layout.face_grape_eyes);
+		herbalToFaceLayout.put(R.drawable.discover_hsian,
 				R.layout.face_hsian_glasses);
-		herbalToFaceLayout.put(R.drawable.herb_jinin, R.layout.face_jinin_bite);
-		herbalToFaceLayout.put(R.drawable.herb_lu, R.layout.face_lu_eyebrow);
+		herbalToFaceLayout.put(R.drawable.discover_jinin,
+				R.layout.face_jinin_bite);
+		herbalToFaceLayout
+				.put(R.drawable.discover_lu, R.layout.face_lu_eyebrow);
 		herbalToFaceLayout
 				.put(R.drawable.herb_mint, R.layout.face_mint_eyebrow);
-		herbalToFaceLayout.put(R.drawable.herb_one, R.layout.face_one_head);
-		herbalToFaceLayout.put(R.drawable.herb_shell, R.layout.face_shell_nose);
-		herbalToFaceLayout.put(R.drawable.herb_shy, R.layout.face_shy_glasses);
+		herbalToFaceLayout.put(R.drawable.discover_one, R.layout.face_one_head);
+		herbalToFaceLayout.put(R.drawable.discover_shell,
+				R.layout.face_shell_nose);
+		herbalToFaceLayout.put(R.drawable.discover_shy,
+				R.layout.face_shy_glasses);
 		herbalToFaceLayout
 				.put(R.drawable.herb_white, R.layout.face_white_mouth);
 
