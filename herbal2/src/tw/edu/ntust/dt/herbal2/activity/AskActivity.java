@@ -141,10 +141,10 @@ public class AskActivity extends Activity {
 
 		} else {
 
-			SharedPreferences sp = getSharedPreferences("herbal",
-					Context.MODE_PRIVATE);
-			sp.edit().putInt("resId", currentState);
-			sp.edit().commit();
+			SharedPreferences.Editor editor = getSharedPreferences("herbal",
+					Context.MODE_PRIVATE).edit();
+			editor.putInt("resId", currentState);
+			editor.commit();
 
 			Intent intent = new Intent();
 			intent.setClass(this, ResultActivity.class);
