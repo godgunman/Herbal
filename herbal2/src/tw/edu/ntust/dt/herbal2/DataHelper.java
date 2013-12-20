@@ -29,8 +29,8 @@ public class DataHelper {
 		resIdToHerbals.put(R.drawable.result_jie,
 				Arrays.asList(R.drawable.herb_shell, R.drawable.herb_gochi));
 		resIdToHerbals.put(R.drawable.result_nee, Arrays.asList(
-				R.drawable.herb_flower, R.drawable.herb_dog,
-				R.drawable.herb_jinin, R.drawable.herb_fish));
+				R.drawable.herb_flower, R.drawable.herb_jinin,
+				R.drawable.herb_fish));
 		resIdToHerbals.put(R.drawable.result_ya, Arrays.asList(
 				R.drawable.herb_shell, R.drawable.herb_lu,
 				R.drawable.herb_jinin, R.drawable.herb_shy));
@@ -55,6 +55,9 @@ public class DataHelper {
 		discoverData.put(R.drawable.result_yenyen, Arrays.asList(
 				R.drawable.discover_flower, R.drawable.discover_one,
 				R.drawable.discover_fish));
+		discoverData.put(R.drawable.result_yen, Arrays.asList(
+				R.drawable.discover_lu, R.drawable.discover_grape,
+				R.drawable.discover_jinin, R.drawable.discover_fish));
 
 		/*
 		 * if_jian__hsian+mint if_jie__shell+gochi+mao+white
