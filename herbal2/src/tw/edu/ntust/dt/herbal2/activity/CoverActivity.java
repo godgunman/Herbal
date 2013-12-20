@@ -8,6 +8,7 @@ import com.facebook.model.GraphUser;
 import com.facebook.*;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,11 +18,14 @@ import android.view.View;
 
 public class CoverActivity extends Activity {
 
+	private ProgressDialog progrss;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cover_parallax);
 		
+		progrss = new ProgressDialog(this);
 	}
 
 	@Override
@@ -38,6 +42,7 @@ public class CoverActivity extends Activity {
 	 */
 	public void clickLogin(View view) {
 
+		progrss.show();
 		Session.openActiveSession(this, true, new Session.StatusCallback() {
 
 			// callback when session changes state
@@ -64,6 +69,8 @@ public class CoverActivity extends Activity {
 										editor.putString("name", user.getName());
 										editor.commit();
 
+										progrss.dismiss();
+										
 										Intent intent = new Intent();
 										intent.setClass(CoverActivity.this, AskActivity.class);
 										startActivity(intent);
