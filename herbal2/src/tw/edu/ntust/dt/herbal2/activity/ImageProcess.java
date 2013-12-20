@@ -23,7 +23,7 @@ public class ImageProcess {
 		Log.d("ImageProcess", bitmap.getHeight() + "," + bitmap.getWidth());
 		Matrix matrix = new Matrix();
 
-		matrix.postRotate(90);
+		matrix.postRotate(-90);
 		// Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmapOrg, height,
 		// width, true);
 
