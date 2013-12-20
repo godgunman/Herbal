@@ -32,8 +32,8 @@ public class ResultActivity extends Activity {
 
 		resId = getSharedPreferences("herbal", Context.MODE_PRIVATE).getInt(
 				"resId", R.drawable.result_jian);
-		fbName = getSharedPreferences("fb", Context.MODE_PRIVATE)
-				.getString("name", "unknown");
+		fbName = getSharedPreferences("fb", Context.MODE_PRIVATE).getString(
+				"name", "unknown");
 
 		((ImageView) findViewById(R.id.result_image)).setImageResource(resId);
 		((TextView) findViewById(R.id.name)).setText(fbName);
@@ -77,17 +77,24 @@ public class ResultActivity extends Activity {
 	 * @param view
 	 */
 	public void clickSearchButton(View view) {
-		
+
 		int dataLen = DataHelper.discoverData.get(resId).size();
 		int select = new Random().nextInt(dataLen);
 		int discoverGoalResId = DataHelper.discoverData.get(resId).get(select);
 
-		Editor editor = getSharedPreferences("herbal", Context.MODE_PRIVATE).edit();
+		Editor editor = getSharedPreferences("herbal", Context.MODE_PRIVATE)
+				.edit();
 		editor.putInt("discoverHerbalId", discoverGoalResId);
 		editor.commit();
-		
+
 		Intent intent = new Intent();
 		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
+		finish();
 	}
+
+	@Override
+	public void onBackPressed() {
+	}
+
 }

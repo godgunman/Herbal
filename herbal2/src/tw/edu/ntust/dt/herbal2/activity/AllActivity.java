@@ -97,4 +97,8 @@ public class AllActivity extends Activity {
 		startActivity(new Intent(this, RecipeActivity.class));
 	}
 
+	@Override
+	public void onBackPressed() {
+	}
+
 }

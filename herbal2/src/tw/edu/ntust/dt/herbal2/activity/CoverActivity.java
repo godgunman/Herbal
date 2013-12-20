@@ -19,12 +19,12 @@ import android.view.View;
 public class CoverActivity extends Activity {
 
 	private ProgressDialog progrss;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cover_parallax);
-		
+
 		progrss = new ProgressDialog(this);
 	}
 
@@ -70,10 +70,12 @@ public class CoverActivity extends Activity {
 										editor.commit();
 
 										progrss.dismiss();
-										
+
 										Intent intent = new Intent();
-										intent.setClass(CoverActivity.this, AskActivity.class);
+										intent.setClass(CoverActivity.this,
+												AskActivity.class);
 										startActivity(intent);
+										finish();
 									}
 								}
 							});
@@ -88,4 +90,10 @@ public class CoverActivity extends Activity {
 		Session.getActiveSession().onActivityResult(this, requestCode,
 				resultCode, data);
 	}
+
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+
 }

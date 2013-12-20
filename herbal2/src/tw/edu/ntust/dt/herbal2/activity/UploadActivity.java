@@ -61,14 +61,15 @@ public class UploadActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SharedPreferences sp = getSharedPreferences("herbal", Context.MODE_PRIVATE);
-		int discoverHerbalId = sp.getInt("discoverHerbalId", R.drawable.discover_flower);
+		SharedPreferences sp = getSharedPreferences("herbal",
+				Context.MODE_PRIVATE);
+		int discoverHerbalId = sp.getInt("discoverHerbalId",
+				R.drawable.discover_flower);
 		int resId = sp.getInt("resId", R.drawable.result_jian);
-		
+
 		int faceLayoutId = DataHelper.herbalToFaceLayout.get(discoverHerbalId);
 		int faceText = DataHelper.resIdToFaceText.get(resId);
-		
-		
+
 		String name = getSharedPreferences("fb", Context.MODE_PRIVATE)
 				.getString("name", "unknown");
 
@@ -82,10 +83,11 @@ public class UploadActivity extends Activity {
 		nameTextView = (TextView) findViewById(R.id.name);
 
 		nameTextView.setText(name);
-		nameTextView.setTypeface(Typeface.createFromAsset(getAssets(), "hk.otf"));
-		
+		nameTextView.setTypeface(Typeface
+				.createFromAsset(getAssets(), "hk.otf"));
+
 		faceTextImage.setImageResource(faceText);
-		
+
 		// Find the total number of cameras available
 		numberOfCameras = Camera.getNumberOfCameras();
 
@@ -269,6 +271,7 @@ public class UploadActivity extends Activity {
 							intent.setClass(UploadActivity.this,
 									AllActivity.class);
 							startActivity(intent);
+							finish();
 						}
 					});
 			builder.setNegativeButton("分享",
@@ -288,6 +291,10 @@ public class UploadActivity extends Activity {
 					});
 			builder.create().show();
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
 	}
 
 }

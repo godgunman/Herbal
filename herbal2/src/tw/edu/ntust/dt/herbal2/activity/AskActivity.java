@@ -96,8 +96,6 @@ public class AskActivity extends Activity {
 
 	private int currentState = 0;
 
-	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -150,7 +148,12 @@ public class AskActivity extends Activity {
 			intent.setClass(this, ResultActivity.class);
 			intent.putExtra("result", currentState);
 			startActivity(intent);
+			finish();
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
 	}
 
 }

@@ -32,6 +32,7 @@ public class RecipeActivity extends Activity {
 
 	public void home(View view) {
 		startActivity(new Intent(this, CoverActivity.class));
+		finish();
 	}
 
 }
