@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/cover_bg" />
+        android:src="@drawable/cover_bg3" />
 
     <!-- Foreground -->
     <!-- You can place any of the items below as the foreground, but for most control, add the scroll view yourself. -->
@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="350dp"
                 android:adjustViewBounds="true"
                 android:gravity="center"
                 android:src="@drawable/cover_icon_1" />
@@ -39,7 +39,7 @@
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="350dp"
                 android:adjustViewBounds="true"
                 android:gravity="center"
                 android:src="@drawable/cover_icon_2" />
@@ -47,7 +47,7 @@
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="350dp"
                 android:adjustViewBounds="true"
                 android:gravity="center"
                 android:src="@drawable/cover_icon_3" />
@@ -55,27 +55,15 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
                 android:layout_marginLeft="90dp"
                 android:layout_marginRight="90dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="250dp"
                 android:adjustViewBounds="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:onClick="clickLogin"
                 android:scaleType="fitCenter"
                 android:src="@drawable/cover_login_fb" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:layout_marginLeft="90dp"
-                android:layout_marginRight="90dp"
-                android:layout_marginTop="10dp"
-                android:adjustViewBounds="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:onClick="clickLogin"
-                android:scaleType="fitCenter"
-                android:src="@drawable/cover_login_twitter" />
         </LinearLayout>
     </couk.jenxsol.parallaxscrollview.views.ObservableScrollView>
 
