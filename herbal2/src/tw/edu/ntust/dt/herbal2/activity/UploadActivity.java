@@ -93,7 +93,7 @@ public class UploadActivity extends Activity {
 		CameraInfo cameraInfo = new CameraInfo();
 		for (int i = 0; i < numberOfCameras; i++) {
 			Camera.getCameraInfo(i, cameraInfo);
-			if (cameraInfo.facing == CameraInfo.CAMERA_FACING_BACK) {
+			if (cameraInfo.facing == CameraInfo.CAMERA_FACING_FRONT) {
 				defaultCameraId = i;
 			}
 		}
@@ -104,7 +104,7 @@ public class UploadActivity extends Activity {
 		super.onResume();
 
 		if (mCamera == null) {
-			mCamera = Camera.open();
+			mCamera = Camera.open(defaultCameraId);
 		}
 		Camera.Parameters parameters = mCamera.getParameters();
 		List<Size> sizes = parameters.getSupportedPictureSizes();
