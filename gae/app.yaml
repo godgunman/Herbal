@@ -1,0 +1,14 @@
+application: herbalalley
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /qrcode
+  script: qrcode.py
+
+- url: /apk/herbal.apk
+  static_files: apk/herbal3.apk
+  upload: apk/herbal3.apk
+
