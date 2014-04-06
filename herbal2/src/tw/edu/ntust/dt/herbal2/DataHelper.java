@@ -26,38 +26,70 @@ public class DataHelper {
 
 		resIdToHerbals.put(R.drawable.result_jian,
 				Arrays.asList(R.drawable.herb_hsian, R.drawable.herb_mint));
-		resIdToHerbals.put(R.drawable.result_jie,
-				Arrays.asList(R.drawable.herb_shell, R.drawable.herb_gochi));
+
+		resIdToHerbals.put(R.drawable.result_jie, Arrays.asList(
+				R.drawable.herb_gochi, R.drawable.herb_shilianhua,
+				R.drawable.herb_wuzhuajinying, R.drawable.herb_grape,
+				R.drawable.herb_jinyinhua, R.drawable.herb_cheqiancao,
+				R.drawable.herb_jinqiancao, R.drawable.herb_huoxiang));
+
 		resIdToHerbals.put(R.drawable.result_nee, Arrays.asList(
 				R.drawable.herb_flower, R.drawable.herb_jinin,
-				R.drawable.herb_fish));
+				R.drawable.herb_fish, R.drawable.herb_lu,
+				R.drawable.herb_gouweicao, R.drawable.herb_zhufanhuatou,
+				R.drawable.herb_jianghuang));
+
 		resIdToHerbals.put(R.drawable.result_ya, Arrays.asList(
 				R.drawable.herb_shell, R.drawable.herb_lu,
-				R.drawable.herb_jinin, R.drawable.herb_shy));
+				R.drawable.herb_jinin, R.drawable.herb_shy,
+				R.drawable.herb_sanqihua, R.drawable.herb_flower));
+
 		resIdToHerbals.put(R.drawable.result_yen, Arrays.asList(
 				R.drawable.herb_lu, R.drawable.herb_grape,
-				R.drawable.herb_jinin, R.drawable.herb_fish));
+				R.drawable.herb_jinin, R.drawable.herb_fish,
+				R.drawable.herb_heye, R.drawable.herb_sangye,
+				R.drawable.herb_jili, R.drawable.herb_qianliguang,
+				R.drawable.herb_xianfengcao, R.drawable.herb_baihelingzhi,
+				R.drawable.herb_fenteng, R.drawable.herb_lujiaotieshu));
+
 		resIdToHerbals.put(R.drawable.result_yenyen, Arrays.asList(
-				R.drawable.herb_dragon, R.drawable.herb_flower,
-				R.drawable.herb_one, R.drawable.herb_fish));
+				R.drawable.herb_flower, R.drawable.herb_fish,
+				R.drawable.herb_chuanxinlian, R.drawable.herb_baguacao,
+				R.drawable.herb_hsian, R.drawable.herb_hongtianwu,
+				R.drawable.herb_kuteng, R.drawable.herb_jianghuang));
 
 		discoverData = new SparseArray<List<Integer>>();
 		discoverData.put(R.drawable.result_jian, Arrays.asList(
 				R.drawable.discover_fish, R.drawable.discover_mint));
-		discoverData.put(R.drawable.result_jie,
-				Arrays.asList(R.drawable.discover_shell));
-		discoverData.put(R.drawable.result_nee, Arrays.asList(
-				R.drawable.discover_flower, R.drawable.discover_jinin,
-				R.drawable.discover_fish));
+		discoverData.put(R.drawable.result_jie, Arrays.asList(
+				R.drawable.discover_shell, R.drawable.discover_gouweicao,
+				R.drawable.discover_wuzhuajinying, R.drawable.discover_grape,
+				R.drawable.discover_jinyinhua, R.drawable.discover_cheqiancao,
+				R.drawable.discover_jinqiancao, R.drawable.discover_huoxiang));
+		discoverData.put(R.drawable.result_nee, Arrays
+				.asList(R.drawable.discover_flower, R.drawable.discover_jinin,
+						R.drawable.discover_fish, R.drawable.discover_lu,
+						R.drawable.discover_gouweicao,
+						R.drawable.discover_zhufanhuatou,
+						R.drawable.discover_jinyinhua));
 		discoverData.put(R.drawable.result_ya, Arrays.asList(
 				R.drawable.discover_shell, R.drawable.discover_lu,
-				R.drawable.discover_jinin, R.drawable.discover_shy));
+				R.drawable.discover_jinin, R.drawable.discover_shy,
+				R.drawable.discover_sanqihua, R.drawable.discover_flower));
 		discoverData.put(R.drawable.result_yenyen, Arrays.asList(
 				R.drawable.discover_flower, R.drawable.discover_one,
-				R.drawable.discover_fish));
+				R.drawable.discover_fish, R.drawable.discover_heye,
+				R.drawable.discover_sangye, R.drawable.discover_jili,
+				R.drawable.discover_qianliguang,
+				R.drawable.discover_xianfengcao,
+				R.drawable.discover_baihelingzhi, R.drawable.discover_fenteng,
+				R.drawable.discover_lujiaotieshu));
 		discoverData.put(R.drawable.result_yen, Arrays.asList(
 				R.drawable.discover_lu, R.drawable.discover_grape,
-				R.drawable.discover_jinin, R.drawable.discover_fish));
+				R.drawable.discover_jinin, R.drawable.discover_fish,
+				R.drawable.discover_chuanxinlian, R.drawable.discover_baguacao,
+				R.drawable.discover_hsian, R.drawable.discover_hongtianwu,
+				R.drawable.discover_kuteng, R.drawable.discover_jianghuang));
 
 		/*
 		 * if_jian__hsian+mint if_jie__shell+gochi+mao+white
@@ -109,6 +141,46 @@ public class DataHelper {
 		herbalToRecipe.put(R.drawable.herb_one, R.drawable.recipe_one);
 		herbalToRecipe.put(R.drawable.herb_shell, R.drawable.recipe_shell);
 		herbalToRecipe.put(R.drawable.herb_shy, R.drawable.recipe_shy);
+
+		herbalToRecipe
+				.put(R.drawable.herb_baguacao, R.drawable.recipe_baguacao);
+		herbalToRecipe.put(R.drawable.herb_baihelingzhi,
+				R.drawable.recipe_baihelingzhi);
+		herbalToRecipe.put(R.drawable.herb_cheqiancao,
+				R.drawable.recipe_cheqiancao);
+		herbalToRecipe.put(R.drawable.herb_chuanxinlian,
+				R.drawable.recipe_chuanxinlian);
+		herbalToRecipe.put(R.drawable.herb_fenteng, R.drawable.recipe_fenteng);
+		herbalToRecipe.put(R.drawable.herb_gouweicao,
+				R.drawable.recipe_gouweicao);
+		herbalToRecipe.put(R.drawable.herb_heye, R.drawable.recipe_heye);
+		herbalToRecipe.put(R.drawable.herb_hongtianwu,
+				R.drawable.recipe_hongtianwu);
+		herbalToRecipe
+				.put(R.drawable.herb_huoxiang, R.drawable.recipe_huoxiang);
+		herbalToRecipe.put(R.drawable.herb_jianghuang,
+				R.drawable.recipe_jianghuang);
+		herbalToRecipe.put(R.drawable.herb_jili, R.drawable.recipe_jili);
+		herbalToRecipe.put(R.drawable.herb_jinqiancao,
+				R.drawable.recipe_jinqiancao);
+		herbalToRecipe.put(R.drawable.herb_jinyinhua,
+				R.drawable.recipe_jinyinhua);
+		herbalToRecipe.put(R.drawable.herb_kuteng, R.drawable.recipe_kuteng);
+		herbalToRecipe.put(R.drawable.herb_lujiaotieshu,
+				R.drawable.recipe_lujiaotieshu);
+		herbalToRecipe.put(R.drawable.herb_qianliguang,
+				R.drawable.recipe_qianliguang);
+		herbalToRecipe.put(R.drawable.herb_sangye, R.drawable.recipe_sangye);
+		herbalToRecipe
+				.put(R.drawable.herb_sanqihua, R.drawable.recipe_sanqihua);
+		herbalToRecipe.put(R.drawable.herb_shilianhua,
+				R.drawable.recipe_shilianhua);
+		herbalToRecipe.put(R.drawable.herb_wuzhuajinying,
+				R.drawable.recipe_wuzhuajinying);
+		herbalToRecipe.put(R.drawable.herb_xianfengcao,
+				R.drawable.recipe_xianfengcao);
+		herbalToRecipe.put(R.drawable.herb_zhufanhuatou,
+				R.drawable.recipe_zhufanhuatou);
 
 		herbalToCook = new SparseIntArray();
 		herbalToCook.put(R.drawable.herb_dragon,
